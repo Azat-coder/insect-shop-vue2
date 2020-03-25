@@ -13,7 +13,22 @@
         </ul>
 
         <h2>Отряды насекомых</h2>
-        
+            <ul class="ordo-list">
+                <li class="ordo-item">Богомоловые</li>
+                <li class="ordo-item">Двукрылые</li>
+                <li class="ordo-item">Жесткокрылые</li>
+                <li class="ordo-item">Кожистокрылые</li>
+                <li class="ordo-item">Перепончатокрылые</li>
+                <li class="ordo-item">Полужесткокрылые</li>
+                <li class="ordo-item">Прямокрылые</li>
+                <li class="ordo-item">Сетчатокрылые</li>
+                <li class="ordo-item">Стрекозы</li>
+                <li class="ordo-item">Чешуекрылые</li>              
+                <li class="ordo-item">Скорпионы</li>
+                <li class="ordo-item">Сколопендровые</li>
+            </ul>
+            
+
     </div>
 </template>
 
