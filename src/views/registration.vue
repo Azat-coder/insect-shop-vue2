@@ -4,15 +4,44 @@
             <a class="registration-link" href="">Регистрация</a>
             <router-link class="login-link" to="/login">Войти</router-link>
         </div>
-        <form>
+        <form @submit.prevent="submitHandler">
             <div class="form-group">
                 <div class="input-field">
-                    <input class="registration-mail" type="text" placeholder="Введите адрес электронной почты">
+                    <input 
+                    class="registration-mail" 
+                    id="email"
+                    type="text" 
+                    placeholder="Адрес электронной почты"
+                    v-model.trim="email"
+                    :class="{invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email)}"
+                    >
+                    <small 
+                    class="helper-text"
+                    v-if="$v.email.$dirty && !$v.email.required"
+                    >Введите адрес электронной почты</small>
+                    <small 
+                    class="helper-text"
+                    v-else-if="$v.email.$dirty && !$v.email.email"
+                    >Введите корректный адрес электронной почты</small>
                 </div>
                 <div class="input-field">
-                    <input class="registration-password" type="text" placeholder="Пароль">
+                    <input 
+                    class="registration-password" 
+                    type="text" 
+                    placeholder="Пароль"
+                    v-model.trim="password"
+                    :class="{invalid: ($v.password.$dirty && !$v.password.required) || ($v.email.$dirty && !$v.password.minLength)}"
+                    >
+                    <small 
+                    class="helper-text-password"
+                    v-if="$v.password.$dirty && !$v.password.required"
+                    >Введите пароль</small>
+                     <small 
+                    class="helper-text-password"
+                    v-else-if="$v.password.$dirty && !$v.password.minLength"
+                    >Пароль должен быть {{$v.password.$params.minLength.min}} символов. Сейчас он {{password.length}}</small>
                 </div>
-                <button class="button">Зарегистрироваться</button>
+                <button class="button" type="submit">Зарегистрироваться</button>
             </div>
             <p class="registration-information">Регистрируясь на нашем сайте, вы соглашаетесь с 
                 <a href="">Пользовательским соглашением</a> и 
@@ -21,6 +50,37 @@
         </form>        
     </div>
 </template>
+
+<script>
+import {email, required, minLength} from 'vuelidate/lib/validators'
+
+export default {
+    name: 'registration',
+    data: () => ({
+        email: '',
+        password: ''
+    }),
+    validations: {
+        email: {email, required},
+        password: {required, minLength: minLength(6)}
+    },
+    methods: {
+        submitHandler () {          
+            if (this.$v.$invalid) {
+                this.$v.$touch()
+                return
+            }
+            const formRegistrationData = {
+                email: this.email,
+                password: this.password
+            }
+            console.log(formRegistrationData)
+            this.$router.push('/')
+        }
+    }
+
+}
+</script>
 
 
 
@@ -132,5 +192,24 @@
         border-bottom: 2px solid #fb565a;
         margin-bottom: -2px;
         color: #fb565a;
+    }
+
+    input[type="text"].invalid {
+        border-color: red;
+        color: red;
+    }
+
+    .helper-text {
+        position: absolute;
+        top: 105px;
+        left: 10px;
+        color: red;
+    }
+
+    .helper-text-password {
+        position: absolute;
+        top: 192px;
+        left: 10px;
+        color: red;
     }
 </style>

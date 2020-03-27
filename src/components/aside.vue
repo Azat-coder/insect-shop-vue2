@@ -27,8 +27,6 @@
                 <li class="ordo-item">Скорпионы</li>
                 <li class="ordo-item">Сколопендровые</li>
             </ul>
-            
-
     </div>
 </template>
 

@@ -4,7 +4,7 @@
             <img src="../assets/logo.svg" alt="Логотип магазина" width="200" height="100">
             <div class="searchBlock">
                 <div class="input-container">
-                    <input type="text" placeholder="Бабочки в рамке" v-model="searchName">
+                    <input type="text" placeholder="Бабочки в рамке">
                     <input class="search-categories" type="text" placeholder="Все категории">
                 </div>
             </div>
@@ -32,11 +32,11 @@
 
 <script>
 export default {
-    data () {
-        return {
-            searchname: ''
-        }
-    }
+    // data () {
+    //     return {
+    //         searchname: ''
+    //     }
+    // }
   
 }
 </script>

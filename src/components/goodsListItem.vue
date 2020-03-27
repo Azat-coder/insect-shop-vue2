@@ -1,9 +1,12 @@
 <template>
     <li>
-       <h2>{{good.name}}</h2> 
-       <p>{{good.price}}</p> 
-       <button>В корзину</button>
-       <button>Добавить в Мои желания</button>
+        <a href="">
+            <img :src ="image" alt="">
+            <h2>{{good.name}}</h2> 
+            <p>{{good.price}}</p> 
+            <button>В корзину</button>
+            <button>Добавить в Мои желания</button>
+        </a>
     </li>
 </template>
 
@@ -21,7 +24,8 @@ export default {
 <style scoped>
   li {
       margin-bottom: 2em;
-      max-width: 350px; 
+      width: 350px;
+      height: 525px; 
       border: orange 2px solid;
       margin-right: 20px;
       padding: 10px;

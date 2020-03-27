@@ -9,18 +9,37 @@
                 <div class="input-field">
                     <input 
                     class="login-mail" 
+                    id="email"
                     type="text" 
                     placeholder="Адрес электронной почты"
                     v-model.trim="email"
                     :class="{invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email)}"
                     >
+                    <small 
+                    class="helper-text"
+                    v-if="$v.email.$dirty && !$v.email.required"
+                    >Введите адрес электронной почты</small>
+                    <small 
+                    class="helper-text"
+                    v-else-if="$v.email.$dirty && !$v.email.email"
+                    >Введите корректный адрес электронной почты</small>
                 </div>
                 <div class="input-field">
                     <input 
                     class="login-password" 
                     type="text" 
                     placeholder="Пароль"
+                    v-model.trim="password"
+                    :class="{invalid: ($v.password.$dirty && !$v.password.required) || ($v.email.$dirty && !$v.password.minLength)}"
                     >
+                    <small 
+                    class="helper-text-password"
+                    v-if="$v.password.$dirty && !$v.password.required"
+                    >Введите пароль</small>
+                     <small 
+                    class="helper-text-password"
+                    v-else-if="$v.password.$dirty && !$v.password.minLength"
+                    >Пароль должен быть {{$v.password.$params.minLength.min}} символов. Сейчас он {{password.length}}</small>
                 </div>
                 <button class="button" type="submit">Войти</button>
             </div>
@@ -43,8 +62,25 @@ export default {
         password: {required, minLength: minLength(6)}
     },
     methods: {
-        submitHandler () {
-            this.$router.push('/')
+        async submitHandler () {          
+            if (this.$v.$invalid) {
+                this.$v.$touch()
+                return
+            }
+
+            const formData = {
+                email: this.email,
+                password: this.password
+            }
+
+            try {
+                await this.$store.dispatch('login', formData)
+                this.$router.push('/')
+            } catch (e) {
+                console.log(e)
+            }
+
+            
         }
     }
 
@@ -95,10 +131,6 @@ export default {
 
     input[type="text"]:hover {
         border-color: #dfdfdf;
-    }
-
-    input[type="text"]:focus {
-        border-color: #000000;
     }
 
     .button {
@@ -160,5 +192,24 @@ export default {
         border-bottom: 2px solid #fb565a;
         margin-bottom: -2px;
         color: #fb565a;
+    }
+
+    input[type="text"].invalid {
+        border-color: red;
+        color: red;
+    }
+
+    .helper-text {
+        position: absolute;
+        top: 105px;
+        left: 10px;
+        color: red;
+    }
+
+    .helper-text-password {
+        position: absolute;
+        top: 192px;
+        left: 10px;
+        color: red;
     }
 </style>

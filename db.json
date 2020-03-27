@@ -2,11 +2,13 @@
 "goods": [
       {
         "name": "Насекомые черноморского побережья",
-        "price": "10000 руб."
+        "price": "10000 руб.",
+        "image": "../images/diptera-1.jpg"
       },
       {
         "name": "Жесткокрылые",
-        "price": "50000 руб."
+        "price": "50000 руб.",
+        "image": "../images/turgoyak-1.jpg"
       },
       {
         "name": "Чешуекрылые",
