@@ -65,17 +65,20 @@ export default {
         password: {required, minLength: minLength(6)}
     },
     methods: {
-        submitHandler () {          
+        async submitHandler () {          
             if (this.$v.$invalid) {
                 this.$v.$touch()
                 return
             }
-            const formRegistrationData = {
+            const formData = {
                 email: this.email,
                 password: this.password
             }
-            console.log(formRegistrationData)
-            this.$router.push('/')
+
+            try {
+                await this.$store.dispatch('register', formData)
+                this.$router.push('/')
+            } catch (e) {console.log(e)}
         }
     }
 
@@ -124,14 +127,11 @@ export default {
         color: #000000;
         border: 2px solid #eeeeee;
         border-radius: 3px;
+        width: 400px;
     }
 
     input[type="text"]:hover {
         border-color: #dfdfdf;
-    }
-
-    input[type="text"]:focus {
-        border-color: #000000;
     }
 
     .button {
@@ -147,7 +147,9 @@ export default {
         text-transform: uppercase;
         border: none;
         border-radius: 3px; 
-        cursor: pointer;  
+        cursor: pointer; 
+        position: relative;
+         
     }
 
     .button:hover,
@@ -201,7 +203,7 @@ export default {
 
     .helper-text {
         position: absolute;
-        top: 105px;
+        top: 104px;
         left: 10px;
         color: red;
     }

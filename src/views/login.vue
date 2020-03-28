@@ -83,7 +83,6 @@ export default {
             
         }
     }
-
 }
 </script>
 
@@ -127,6 +126,7 @@ export default {
         color: #000000;
         border: 2px solid #eeeeee;
         border-radius: 3px;
+        width: 400px;
     }
 
     input[type="text"]:hover {
@@ -148,7 +148,7 @@ export default {
         border-radius: 3px; 
         cursor: pointer; 
         position: relative;
-        top: -10px; 
+        top: -10px
     }
 
     .button:hover,
@@ -201,7 +201,7 @@ export default {
 
     .helper-text {
         position: absolute;
-        top: 105px;
+        top: 104px;
         left: 10px;
         color: red;
     }

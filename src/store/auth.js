@@ -6,10 +6,29 @@ export default {
             try {
               await firebase.auth().signInWithEmailAndPassword(email, password)
             } catch (e) {
-                console.log (e, dispatch, commit)
+                console.log (dispatch)
+                commit('setError', e)
               throw e
             }
             
+        },
+        async register({dispatch, commit}, {email, password}) {
+            try {
+                await firebase.auth().createUserWithEmailAndPassword(email, password)
+                const uid = await dispatch('getUid')
+                await firebase.database().ref(`/users/${uid}/info`).set({
+                    shoppingCartCount: 0
+                })
+              } catch (e) {
+                  console.log (dispatch)
+                  commit('setError', e)
+                throw e
+              }
+        },
+        getUid() {
+            const user = firebase.auth().currentUser
+            return user ? user.uid : null
+
         },
         async logout() {
             await firebase.auth().signOut()

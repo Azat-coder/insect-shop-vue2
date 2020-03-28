@@ -2,7 +2,7 @@
     <li>
         <a href="">
             <img :src ="image" alt="">
-            <h2>{{good.name}}</h2> 
+            <h5>{{good.name}}</h5> 
             <p>{{good.price}}</p> 
             <button>В корзину</button>
             <button>Добавить в Мои желания</button>

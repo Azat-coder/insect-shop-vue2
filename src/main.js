@@ -13,6 +13,7 @@ Vue.config.productionTip = false
 Vue.use(VueResource)
 Vue.use(Vuelidate)
 
+
 firebase.initializeApp({
   apiKey: "AIzaSyAducyQ9bSp7MiKbjuxwhu7HkKVQ-FCgGk",
   authDomain: "insect-shop-vue.firebaseapp.com",

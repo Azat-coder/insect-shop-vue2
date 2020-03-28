@@ -8,24 +8,32 @@
                     <input class="search-categories" type="text" placeholder="Все категории">
                 </div>
             </div>
-            <a href="">
+            
                 <div class="shopping-cart">
-                    <span class="cart-text">Корзина</span>
-                    <span class="cart-number">0</span>
+                    <a href="">
+                        <span class="cart-text">Корзина</span>
+                        <span class="cart-number">0</span>
+                    </a>
                 </div>
-            </a>
-            <a href="">
+            
+           
                 <div class="wishlist">
-                    <span class="wishlist-text">Мои <br/>желания</span>
+                     <a href="">
+                    <p class="wishlist-text">Мои <br/>желания</p>
+                    </a>
                 </div>
-            </a>
+            
             
             <div class="nav-user-block">
-                <a href="" class="button">Войти</a>
-                <a href="" class="button">Зарегистрироваться</a>
-                <a href="">Мои заказы</a>
-                <a href="">Мои желания</a>
+                <router-link to="/login" class="button">Войти</router-link>
+                <router-link to="/registration" class="button">Зарегистрироваться</router-link>
+                <div class="profile-block">
+                    <a href="">Мои заказы</a>
+                    <a href="">Мои желания</a>
+                    <a href="" @click.prevent="logout">Выйти</a>
+                </div>   
             </div>
+            
         </div>
     </div> 
 </template>
@@ -37,11 +45,38 @@ export default {
     //         searchname: ''
     //     }
     // }
-  
+  methods: {
+      async logout() {
+          console.log('Logout')
+          await this.$store.dispatch('logout')
+          this.$router.push('/login?message=logout')
+      }
+  }
 }
 </script>
 
 <style scoped>
+    input[type="text"] {
+        font: inherit;
+        padding: 10px;
+        border: lawngreen 2px solid;
+        border-radius: 3px;
+    }
+    .search-categories {
+        width: 100px;
+        position: relative;
+    }
+    .search-categories::before {
+        display: block;
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        background-color: #fff;
+        border: 2px solid #000;
+        top: 10px;
+        left: 10px;
+    }
+
     .header-block {
         background-color:rgb(81, 238, 18, 0.5);
     }
@@ -54,6 +89,7 @@ export default {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
+        align-items: center;
         max-width: 1200px;
         margin: 0 auto;
     }
@@ -61,6 +97,24 @@ export default {
     .nav-user-block {
         display: flex;
         flex-direction: column;
+        position: relative;
+        padding-left: 50px;
+    }
+
+    .nav-user-block a {
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .nav-user-block::before {
+        position: absolute;
+        top: 0px;
+        left: 5px;
+        overflow: hidden;
+        content: '';
+        width: 40px;
+        height: 40px;
+        background: url(../assets/login.svg);
     }
 
     .cart-text {
@@ -81,6 +135,7 @@ export default {
 
     .shopping-cart {
         position: relative;
+        top: 10px;
     }
 
     .cart-number {
@@ -90,18 +145,17 @@ export default {
         left: 70px;
     }
 
-    .wishlist-text {
+    .wishlist {
         position: relative;
-        top: -18px;
-        margin-left: 50px;
-        display: block;
+        width: 70px;
+        padding-left: 50px;
     }
 
 
     .wishlist-text::before {
         position: absolute;
-        top: -6px;
-        left: -45px;
+        top: 20px;
+        left: 5px;
         overflow: hidden;
         content: '';
         width: 40px;
@@ -110,8 +164,7 @@ export default {
     }
 
     .searchBlock,
-    .shopping-cart,
-    .wishlist {
+    .shopping-cart {
         padding: 30px 0;
     }
 
@@ -127,12 +180,24 @@ export default {
     .input-container::before {
         position: absolute;
         top: 20px;
-        left: 400px;
+        left: 350px;
         overflow: hidden;
         content: '';
         width: 40px;
         height: 40px;
         background: url(../assets/lens.svg);
+    }
+
+    .profile-block {
+        position: absolute;
+        top: 45px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .profile-block a {
+        text-decoration: none;
+        font-weight: bold;
     }
 
       
