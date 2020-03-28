@@ -6,7 +6,12 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    error: null   
+    error: null,
+    goods: {
+      "name": "Насекомые черноморского побережья",
+      "price": "10000 руб.",
+      "image": "../images/diptera-1.jpg"
+    }   
   },
   mutations: {
     setError(state, error) {
@@ -25,3 +30,4 @@ export default new Vuex.Store({
     auth
   }
 })
+  

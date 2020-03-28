@@ -1,11 +1,14 @@
 <template>
     <li>
         <a href="">
-            <img :src ="image" alt="">
-            <h5>{{good.name}}</h5> 
+            <img 
+            
+            :src="require(`../images/${good.image}.jpg`)"
+            alt="">
+            <h3>{{good.name}}</h3> 
             <p>{{good.price}}</p> 
             <button>В корзину</button>
-            <button>Добавить в Мои желания</button>
+            <button>Добавить в Мои желания</button>  
         </a>
     </li>
 </template>

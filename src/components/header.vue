@@ -6,6 +6,7 @@
                 <div class="input-container">
                     <input type="text" placeholder="Бабочки в рамке">
                     <input class="search-categories" type="text" placeholder="Все категории">
+                    <button class="searchBlockButton" type="submit"></button>
                 </div>
             </div>
             
@@ -75,6 +76,15 @@ export default {
         border: 2px solid #000;
         top: 10px;
         left: 10px;
+    }
+
+    .searchBlockButton {
+        position: relative;
+        top: 16px;
+        width: 48px;
+        height: 48px;
+        background: url(../assets/lens.svg);
+        background-color: green;
     }
 
     .header-block {
@@ -173,32 +183,32 @@ export default {
     }
 
     .input-container {
-        margin-right: 40px;
-
+        margin-right: 50px;
+        position: relative;
     }
 
-    .input-container::before {
+    /* .input-container::before {
         position: absolute;
-        top: 20px;
-        left: 350px;
+        top: 0px;
+        left: 330px;
         overflow: hidden;
         content: '';
-        width: 40px;
-        height: 40px;
+        width: 48px;
+        height: 48px;
         background: url(../assets/lens.svg);
-    }
+        background-color: green
+    } */
 
     .profile-block {
         position: absolute;
         top: 45px;
         display: flex;
         flex-direction: column;
+        display: none;
     }
 
     .profile-block a {
         text-decoration: none;
         font-weight: bold;
-    }
-
-      
+    }      
 </style> 

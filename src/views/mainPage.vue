@@ -1,22 +1,24 @@
 <template>
      <div>
-        <h1>Главное содержимое</h1>
+        <h1 class="visually-hidden">Главное содержимое</h1>
+        <vueSortBlock/>
         <vueGoodsList/>
     </div>
-</template>
+</template>    
 
 <script>
 import goodsList from '@/components/goodsList.vue'
+import sortBlock from '@/components/sortBlock.vue'
 
 export default {
     name: 'mainPage',
     data() {
     return {
-
     }
   },
   components: {
-    vueGoodsList: goodsList
+    vueGoodsList: goodsList,
+    vueSortBlock: sortBlock
   }
 }
 </script>

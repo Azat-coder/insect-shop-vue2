@@ -13,6 +13,8 @@ Vue.config.productionTip = false
 Vue.use(VueResource)
 Vue.use(Vuelidate)
 
+Vue.http.options.root = 'http://localhost:3000/'
+
 
 firebase.initializeApp({
   apiKey: "AIzaSyAducyQ9bSp7MiKbjuxwhu7HkKVQ-FCgGk",

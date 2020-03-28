@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Список товаров</h1>
+        <h1 class="visually-hidden">Список товаров</h1>
         <ul>
            <goodsListItem
                v-for="good of goods"
@@ -31,7 +31,7 @@ export default {
     goodsListItem
   },
   mounted() {
-        this.$http.get('http://localhost:3000/goods')
+        this.$http.get('goods')
       .then(response => {
           return response.json()
       })
