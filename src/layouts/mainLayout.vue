@@ -50,4 +50,8 @@ export default {
       display: flex;
       flex-direction: column;
     }
+
+    main {
+      width: 900px;
+    }
 </style>

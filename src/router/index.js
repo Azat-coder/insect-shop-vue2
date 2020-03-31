@@ -27,6 +27,12 @@ const routes = [
     name: 'wishlist',
     meta: {layout: 'main'},
     component: () => import('@/views/wishlist.vue')
+  },
+  {
+    path: '/goodPage',
+    name: 'goodPage',
+    meta: {layout: 'main'},
+    component: () => import('@/views/goodPage.vue')
   }
   
   
