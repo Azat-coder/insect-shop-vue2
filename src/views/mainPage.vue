@@ -24,8 +24,5 @@ export default {
 </script>
 
 <style scoped>
-    div {
-        background-color:rgb(174, 190, 30);
-        border: 3px dashed grey;
-    }     
+ 
 </style> 

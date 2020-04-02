@@ -91,10 +91,6 @@ export default {
         background-color:rgb(81, 238, 18, 0.5);
     }
 
-    .header-block div {
-        border: 1px dashed grey;
-    }
-
     .header-container {
         display: flex;
         flex-wrap: wrap;

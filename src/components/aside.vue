@@ -1,7 +1,6 @@
 <template>
     <div class="container">
-        <h1 class="visually-hidden">Боковое меню</h1>
-        <h2>Категории товара</h2>
+        <h2 class="visually-hidden">Категории товара</h2>
         <form class="filter" action="">
             <fieldset class="categories">
                 <legend>Категория товара:</legend>
@@ -104,7 +103,6 @@ export default {
 <style scoped>
 .container {
         background-color:rgb(187, 233, 169);  
-        border: 3px dashed grey;  
         min-width: 300px;  
     } 
 

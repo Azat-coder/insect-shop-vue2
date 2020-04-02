@@ -1,16 +1,17 @@
 <template>
     <li>
-        <router-link to="/goodPage">
+        <router-link to="/goodPage" @click="showGood">
             <img 
             :src="require(`../images/${good.image}.jpg`)"
             alt="">
             <h3>{{good.name}}</h3> 
             <p>{{good.price}}</p> 
-            <div class="button-block">
-                <button class="button">В корзину</button>
-                <button class="button">Добавить в Мои желания</button>
-            </div>            
         </router-link>
+        <div class="button-block">
+            <button class="button" @click="addToCart">В корзину</button>
+            <button class="button">Добавить в Мои желания</button>
+        </div>            
+        
     </li>
 </template>
 
@@ -21,23 +22,28 @@ export default {
             type: Object,
             required: true
         }
+    },
+    methods: {
+        addToCart() {
+            console.log('Кнопка нажата')
+            this.$emit('addToCart', this.good.index)
+        }
     }
 }
 </script>
 
 <style scoped>
   li {
-      margin-bottom: 2em;
-      width: 380px;
-      height: 450px; 
-      border: orange 2px solid;
-      margin-right: 20px;
-      
+    margin-bottom: 2em;
+    width: 380px;
+    height: 450px; 
+    border: #eeeeee 2px solid;
+    margin-right: 20px;   
   }
 
   a {
-      text-decoration: none;
-      color: honeydew;
+    text-decoration: none;
+    color: #283136;
   }
 
   img {
@@ -66,6 +72,7 @@ export default {
 .button:hover,
 .button:focus {
 	background-color: #e74246;
+    cursor: pointer;
 	}
 	
 .button:active {

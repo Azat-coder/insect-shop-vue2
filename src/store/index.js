@@ -7,11 +7,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     error: null,
-    goods: {
-      "name": "Насекомые черноморского побережья",
-      "price": "10000 руб.",
-      "image": "../images/diptera-1.jpg"
-    }   
+    goods: []
   },
   mutations: {
     setError(state, error) {
@@ -22,7 +18,10 @@ export default new Vuex.Store({
     }
   },
   getters: {
-    error: s => s.error
+    error: s => s.error,
+    GOODS(state) {
+      return state.goods
+    }
   },
   actions: {
   },

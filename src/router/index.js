@@ -33,8 +33,13 @@ const routes = [
     name: 'goodPage',
     meta: {layout: 'main'},
     component: () => import('@/views/goodPage.vue')
+  },
+  {
+    path: '/cart',
+    name: 'cart',
+    meta: {layout: 'main'},
+    component: () => import('@/views/cart.vue')
   }
-  
   
 ]
 

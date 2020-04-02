@@ -6,6 +6,7 @@
                v-for="good of goods"
                v-bind:good="good"
                v-bind:key="good.name"
+               @addToCart="addToCart"
            /> 
         </ul>
     </div>
@@ -20,13 +21,6 @@ export default {
         goods: []
   }
 },
-// computed: {
-//   filteredGoods() {
-//     return this.goods.filter(good => {
-//       return name.indexOf((searchName))
-//     })
-//   }
-// },
   components: {
     goodsListItem
   },
@@ -39,20 +33,18 @@ export default {
           console.log(goods)
           this.goods = goods
       })
+  },
+  addToCart(data) {
+    console.log(data)
   }
 }
 </script>
 
 <style scoped>
-    div {
-      background-color: rgb(122, 47, 47);
-    }
-
     ul {
       list-style: none;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-around;
-    }
-      
+    }    
 </style> 
