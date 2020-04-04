@@ -2,7 +2,6 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import VueResource from 'vue-resource'
 import Vuelidate from 'vuelidate'
 import firebase from 'firebase/app'
 import 'firebase/auth'
@@ -10,10 +9,8 @@ import 'firebase/database'
 
 
 Vue.config.productionTip = false
-Vue.use(VueResource)
 Vue.use(Vuelidate)
 
-Vue.http.options.root = 'http://localhost:3000/'
 
 
 firebase.initializeApp({

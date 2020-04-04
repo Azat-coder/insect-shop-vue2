@@ -1,32 +1,32 @@
 <template>
     <li>
-        <router-link to="/goodPage" @click="showGood">
+        <router-link to="/goodPage">
             <img 
-            :src="require(`../images/${good.image}.jpg`)"
+            :src="require(`../images/${good_data.image}.jpg`)"
             alt="">
-            <h3>{{good.name}}</h3> 
-            <p>{{good.price}}</p> 
+            <h3>{{good_data.name}}</h3> 
+            <p>{{good_data.price}}</p>  
         </router-link>
         <div class="button-block">
-            <button class="button" @click="addToCart">В корзину</button>
+            <button class="button" @click="addToParent">В корзину</button>
             <button class="button">Добавить в Мои желания</button>
-        </div>            
-        
+        </div>                  
     </li>
 </template>
 
 <script>
 export default {
+    name: 'goods-list-item',
     props: {
-        good: {
+        good_data: {
             type: Object,
             required: true
         }
     },
     methods: {
-        addToCart() {
+        addToParent() {
             console.log('Кнопка нажата')
-            this.$emit('addToCart', this.good.index)
+             this.$emit('addToCart', [this.good_data.index, this.good_data.name])
         }
     }
 }

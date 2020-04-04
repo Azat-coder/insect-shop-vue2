@@ -4,10 +4,8 @@
         <vueHeader/>
         <div class="main-container">
             <vueAside/>
-            <main>
-                
-                    <router-view />
-                        
+            <main>               
+              <router-view />                        
             </main>      
         </div>
         <vueFooter/>

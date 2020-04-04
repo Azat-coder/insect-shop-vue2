@@ -1,4 +1,4 @@
-import firebase from 'firebase/app' 
+import firebase from 'firebase/app'  
 
 export default {
     actions: {
@@ -9,8 +9,7 @@ export default {
                 console.log (dispatch)
                 commit('setError', e)
               throw e
-            }
-            
+            }           
         },
         async register({dispatch, commit}, {email, password}) {
             try {
@@ -28,7 +27,6 @@ export default {
         getUid() {
             const user = firebase.auth().currentUser
             return user ? user.uid : null
-
         },
         async logout() {
             await firebase.auth().signOut()

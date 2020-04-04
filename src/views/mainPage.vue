@@ -7,8 +7,8 @@
 </template>    
 
 <script>
-import goodsList from '@/components/goodsList.vue'
-import sortBlock from '@/components/sortBlock.vue'
+import goodsList from '@/components/goods-list.vue'
+import sortBlock from '@/components/sort-block.vue'
 
 export default {
     name: 'mainPage',
