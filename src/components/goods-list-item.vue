@@ -8,7 +8,7 @@
             <p>{{good_data.price}}</p>  
         </router-link>
         <div class="button-block">
-            <button class="button" @click="addToParent">В корзину</button>
+            <button class="button" @click="addToCart">В корзину</button>
             <button class="button">Добавить в Мои желания</button>
         </div>                  
     </li>
@@ -20,14 +20,18 @@ export default {
     props: {
         good_data: {
             type: Object,
-            required: true
+            default() {
+                return {}
+            }
         }
     },
     methods: {
-        addToParent() {
-            console.log('Кнопка нажата')
-             this.$emit('addToCart', [this.good_data.index, this.good_data.name])
+        addToCart() {
+            this.$emit('addToCart',this.good_data)
         }
+    },
+    mounted() {
+        this.$set(this.good_data, 'quantity', 1)
     }
 }
 </script>

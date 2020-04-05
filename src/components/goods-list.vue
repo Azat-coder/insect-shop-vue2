@@ -6,7 +6,7 @@
                v-for="good in GOODS"
                v-bind:good_data="good"
                v-bind:key="good.index"
-               @addToCart="showDataIndex"
+               @addToCart="addToCart"
            /> 
         </ul>
     </div>
@@ -19,7 +19,19 @@ import {mapActions, mapGetters} from 'vuex'
 export default {
   name: 'goods-list',
   data () {  
-      return {     
+    return {  
+      categories: [
+        {name: 'all', value: ''},
+        {name: 'insect-collections', value: ''},
+        {name: 'insects', value: ''},
+        {name: 'entomological-boxes', value: ''},
+        {name: 'entomological-pins', value: ''},
+        {name: 'tools', value: ''},
+        {name: 'books', value: ''},
+        {name: 'defence-tools', value: ''}
+      ],
+      selected: 'all',
+      sortedGoods: []   
   }
 },
   components: {
@@ -27,10 +39,27 @@ export default {
   },
   methods: {
     ...mapActions([
-      'GET_GOODS_FROM_API'
+      'GET_GOODS_FROM_API',
+      'ADD_TO_CART'
     ]),
-    showDataIndex(data) {
-      console.log(data)
+    addToCart(data) {
+      this.ADD_TO_CART(data)
+    },
+    sortByCategories(category) {
+      this.sortedGoods = []
+      this.PRODUCTS.map(function(item) {
+        if(item.category === category.name) {
+          this.sortedGoods.push(item)
+        }
+      })
+    }
+    // sortGoodsBySearchValue(value) {
+
+    // }
+  },
+  watch: {
+    SEARCH_VALUE() {
+      this.sortGoodsBySearchValue(this.SEARCH_VALUE)
     }
   },
   mounted() {
@@ -38,7 +67,8 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'GOODS'
+      'GOODS',
+      'SEARCH_VALUE'
     ])
   }
 }

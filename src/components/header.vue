@@ -1,58 +1,97 @@
 <template>
     <div class="header-block">
         <div class="header-container">
-            <img src="../assets/logo.svg" alt="Логотип магазина" width="200" height="100">
+            <router-link to="/">
+                <img 
+                src="../assets/logo.svg" 
+                alt="Логотип магазина" 
+                width="200" 
+                height="100">
+            </router-link>
+            
             <div class="searchBlock">
                 <div class="input-container">
-                    <input type="text" placeholder="Бабочки в рамке">
-                    <input class="search-categories" type="text" placeholder="Все категории">
-                    <button class="searchBlockButton" type="submit"></button>
+                    <input 
+                        type="text" 
+                        placeholder="Бабочки в рамке"
+                        v-model="searchValue"
+                    >
+                    <!-- <input class="search-categories" type="text" placeholder="Все категории"> -->
+                    <button 
+                    class="searchBlockButton" 
+                    type="submit"
+                    @click.prevent="search(searchValue)"
+                    ></button>
                 </div>
             </div>
             
-                <div class="shopping-cart">
-                    <a href="">
-                        <span class="cart-text">Корзина</span>
-                        <span class="cart-number">0</span>
-                    </a>
-                </div>
-            
-           
-                <div class="wishlist">
-                     <a href="">
-                    <p class="wishlist-text">Мои <br/>желания</p>
-                    </a>
-                </div>
+            <div class="shopping-cart">
+                <router-link class="shopping-cart-link" to="/cart">
+                    <span class="cart-text">Корзина</span>
+                    <span class="cart-number">{{CART.length}}</span>
+                </router-link>
+            </div>
+        
+        
+            <div class="wishlist">
+                    <router-link to="/wishlist" class="wishlist-link">
+                <p class="wishlist-text">Мои <br/>желания</p>
+                    </router-link>
+            </div>
             
             
             <div class="nav-user-block">
-                <router-link to="/login" class="button">Войти</router-link>
-                <router-link to="/registration" class="button">Зарегистрироваться</router-link>
+                <router-link 
+                    to="/login" 
+                    class="button"
+                    >
+                    Войти
+                </router-link>
+                <router-link 
+                    to="/registration" 
+                    class="button"
+                    >
+                    Зарегистрироваться
+                    </router-link>
                 <div class="profile-block">
                     <a href="">Мои заказы</a>
                     <a href="">Мои желания</a>
                     <a href="" @click.prevent="logout">Выйти</a>
                 </div>   
-            </div>
-            
+            </div>           
         </div>
     </div> 
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
+
 export default {
-    // data () {
-    //     return {
-    //         searchname: ''
-    //     }
-    // }
-  methods: {
-      async logout() {
-          console.log('Logout')
-          await this.$store.dispatch('logout')
-          this.$router.push('/login?message=logout')
-      }
-  }
+    data() {
+        return {
+            searchValue: ''
+        }
+    },
+    methods: {
+        async logout() {
+            console.log('Logout')
+            await this.$store.dispatch('logout')
+            this.$router.push('/login?message=logout')
+        },
+        ...mapActions([
+            'GET_SEARCH_VALUE_TO_VUEX'
+        ]),
+        search(value) {
+            this.GET_SEARCH_VALUE_TO_VUEX(value)
+            this.$router.push('/')
+        }
+    },
+    computed: {
+        ...mapGetters([
+            'CART',
+            'SEARCH_VALUE'
+        ])
+    }
 }
 </script>
 
@@ -81,10 +120,13 @@ export default {
     .searchBlockButton {
         position: relative;
         top: 16px;
-        width: 48px;
-        height: 48px;
+        left: 5px;
+        width: 40px;
+        height: 40px;
         background: url(../assets/lens.svg);
-        background-color: green;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
     }
 
     .header-block {
@@ -126,6 +168,7 @@ export default {
     .cart-text {
         position: relative;
         margin-left: 50px;
+        text-decoration: none;
     }
     
     .cart-text::before {
@@ -144,6 +187,11 @@ export default {
         top: 10px;
     }
 
+    .shopping-cart-link {
+        text-decoration: none;
+        font-weight: bold;
+    }
+
     .cart-number {
         display: block;
         position: absolute;
@@ -155,6 +203,11 @@ export default {
         position: relative;
         width: 70px;
         padding-left: 50px;
+    }
+
+    .wishlist-link {
+        text-decoration: none;
+        font-weight: bold;
     }
 
 

@@ -10,6 +10,7 @@
 import goodsList from '@/components/goods-list.vue'
 import sortBlock from '@/components/sort-block.vue'
 
+
 export default {
     name: 'mainPage',
     data() {
@@ -18,7 +19,7 @@ export default {
   },
   components: {
     vueGoodsList: goodsList,
-    vueSortBlock: sortBlock
+    vueSortBlock: sortBlock,
   }
 }
 </script>

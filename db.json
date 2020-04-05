@@ -3,7 +3,7 @@
       {
         "index": 1,
         "name": "Насекомые черноморского побережья",
-        "price": "10000 руб.",
+        "price": 10000,
         "image": "1",
         "category": "insectCollections",
         "ordos": ["coleoptera", "diptera"]
@@ -11,56 +11,56 @@
       {
         "index": 2,
         "name": "Жесткокрылые",
-        "price": "50000 руб.",
+        "price": 50000,
         "image": "2",
         "category": "insectCollections"
       },
       {
         "index": 3,
         "name": "Чешуекрылые",
-        "price": "10000 руб.",
+        "price": 10000,
         "image": "3",
         "category": "insectCollections"
       },
       {
         "index": 4,
         "name": "Насекомые озера Тургояк",
-        "price": "5000 руб.",
+        "price": 5000,
         "image": "4",
         "category": "insectCollections"
       },
       {
         "index": 5,
         "name": "Перепончатокрылые",
-        "price": "5000 руб.",
+        "price": 5000,
         "image": "5",
         "category": "insectCollections"
       },
       {
         "index": 6,
         "name": "Двукрылые",
-        "price": "5000 руб.",
+        "price": 5000,
         "image": "6",
         "category": "insectCollections"
       },
       {
         "index": 7,
         "name": "Скорпион",
-        "price": "1000 руб.",
+        "price": 1000,
         "image": "7",
         "category": "singleInsects"
       },
       {
         "index": 8,
         "name": "Майский жук",
-        "price": "1000 руб.",
+        "price": 1000,
         "image": "8",
         "category": "singleInsects"
       },
       {
         "index": 9,
         "name": "Панно",
-        "price": "5000 руб.",
+        "price": 5000,
         "image": "9",
         "category": "insectCollections"
       }
