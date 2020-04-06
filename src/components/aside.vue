@@ -6,85 +6,157 @@
                 <legend>Категория товара:</legend>
                     <ul class="categories-list">
                         <li class="categories-list-item">
-                            <input class="visually-hidden categories-list-item-checkbox" type="checkbox" name="insect-collections" id="insect-collections-item">
-                            <label for="insect-collections-item">Коллекции насекомых</label>
+                            <input 
+                                class="visually-hidden categories-list-item-checkbox" 
+                                type="checkbox" 
+                                name="category" 
+                                v-model="category"
+                                @change="changeCategory(category)" 
+                                value="insect-collections" 
+                                id="insect-collections-item"
+                            >
+                            <label 
+                                for="insect-collections-item">
+                                Коллекции насекомых
+                            </label>
                         </li>
                         <li class="categories-list-item">
-                            <input class="visually-hidden categories-list-item-checkbox" type="checkbox" name="insects" id="insects-item">
-                            <label for="insects-item">Отдельные насекомые в рамках</label>
+                            <input 
+                                class="visually-hidden categories-list-item-checkbox" 
+                                type="checkbox" 
+                                name="category" 
+                                v-model="category"
+                                @change="changeCategory(category)"  
+                                value="insects" 
+                                id="insects-item"
+                            >
+                            <label 
+                                for="insects-item">
+                                Отдельные насекомые в рамках
+                            </label>
                         </li>
                         <li class="categories-list-item">
-                            <input class="visually-hidden categories-list-item-checkbox" type="checkbox" name="entomological-boxes" id="entomological-boxes-item">
-                            <label for="entomological-boxes-item">Энтомологические коробки</label>
+                            <input 
+                                class="visually-hidden categories-list-item-checkbox" 
+                                type="checkbox" 
+                                name="category" 
+                                v-model="category"
+                                @change="changeCategory(category)"  
+                                value="entomological-boxes" 
+                                id="entomological-boxes-item"
+                            >
+                            <label for="entomological-boxes-item">
+                                Энтомологические коробки
+                            </label>
                         </li>
                         <li class="categories-list-item">
-                            <input class="visually-hidden categories-list-item-checkbox" type="checkbox" name="entomological-pins" id="entomological-pins-item">
-                            <label for="entomological-pins-item">Энтомологические булавки</label>
+                            <input 
+                                class="visually-hidden categories-list-item-checkbox" 
+                                type="checkbox" 
+                                name="category" 
+                                v-model="category"
+                                @change="changeCategory(category)"  
+                                value="entomological-pins" 
+                                id="entomological-pins-item"
+                            >
+                            <label for="entomological-pins-item">
+                                Энтомологические булавки
+                            </label>
                         </li>
                         <li class="categories-list-item">
-                            <input class="visually-hidden categories-list-item-checkbox" type="checkbox" name="tools" id="tools-item">
-                            <label for="tools-item">Всё для сбора материала</label>
+                            <input 
+                                class="visually-hidden categories-list-item-checkbox" 
+                                type="checkbox" 
+                                name="category" 
+                                v-model="category"
+                                @change="changeCategory(category)"  
+                                value="tools" 
+                                id="tools-item"
+                            >
+                            <label for="tools-item">
+                                Всё для сбора материала
+                            </label>
                         </li>
                         <li class="categories-list-item">
-                            <input class="visually-hidden categories-list-item-checkbox" type="checkbox" name="books" id="books-item">
-                            <label for="books-item">Книги по энтомологии</label>
+                            <input 
+                                class="visually-hidden categories-list-item-checkbox" 
+                                type="checkbox" 
+                                name="category" 
+                                v-model="category"
+                                @change="changeCategory(category)"  
+                                value="books" 
+                                id="books-item"
+                            >
+                            <label for="books-item">
+                                Книги по энтомологии
+                            </label>
                         </li>
                         <li class="categories-list-item">
-                            <input class="visually-hidden categories-list-item-checkbox" type="checkbox" name="defence-tools" id="defence-tools-item">
-                            <label for="defence-tools-item">Средства для защиты коллекций</label>
+                            <input 
+                                class="visually-hidden categories-list-item-checkbox" 
+                                type="checkbox" 
+                                name="category" 
+                                v-model="category"
+                                @change="changeCategory(category)"  
+                                value="defence-tools" 
+                                id="defence-tools-item"
+                            >
+                            <label for="defence-tools-item">
+                                Средства для защиты коллекций
+                            </label>
                         </li>
                     </ul>
             </fieldset>
-
+<span>Отмеченные боксы: {{category}}</span>
             <fieldset class="ordos">
                 <legend>Отряды насекомых:</legend>
                 <ul class="ordo-list">
                     <li class="ordo-list-item">
-                        <input class="visually-hidden ordo-list-item-checkbox" type="checkbox" name="mantodea" id="mantodea-item">
+                        <input class="visually-hidden ordo-list-item-checkbox" type="checkbox" name="ordo" value="mantodea" id="mantodea-item">
                         <label for="mantodea-item">Богомоловые</label>
                     </li>
                     <li class="ordo-list-item">
-                        <input class="visually-hidden ordo-list-item-checkbox" type="checkbox" name="diptera" id="diptera-item">
+                        <input class="visually-hidden ordo-list-item-checkbox" type="checkbox" name="ordo" value="diptera" id="diptera-item">
                         <label for="diptera-item">Двукрылые</label>
                     </li>
                     <li class="ordo-list-item">
-                        <input class="visually-hidden ordo-list-item-checkbox" type="checkbox" name="coleoptera" id="coleoptera-item">
+                        <input class="visually-hidden ordo-list-item-checkbox" type="checkbox" name="ordo" value="coleoptera" id="coleoptera-item">
                         <label for="coleoptera-item">Жесткокрылые</label>
                     </li>
                     <li class="ordo-list-item">
-                        <input class="visually-hidden ordo-list-item-checkbox" type="checkbox" name="dermaptera" id="dermaptera-item">
+                        <input class="visually-hidden ordo-list-item-checkbox" type="checkbox" name="ordo" value="dermaptera" id="dermaptera-item">
                         <label for="dermaptera-item">Кожистокрылые</label>
                     </li>
                     <li class="ordo-list-item">
-                        <input class="visually-hidden ordo-list-item-checkbox" type="checkbox" name="hymenoptera" id="hymenoptera-item">
+                        <input class="visually-hidden ordo-list-item-checkbox" type="checkbox" name="ordo" value="hymenoptera" id="hymenoptera-item">
                         <label for="hymenoptera-item">Перепончатокрылые</label>
                     </li>
                     <li class="ordo-list-item">
-                        <input class="visually-hidden ordo-list-item-checkbox" type="checkbox" name="hemiptera" id="hemiptera-item">
+                        <input class="visually-hidden ordo-list-item-checkbox" type="checkbox" name="ordo" value="hemiptera" id="hemiptera-item">
                         <label for="hemiptera-item">Полужесткокрылые</label>
                     </li>
                     <li class="ordo-list-item">
-                        <input class="visually-hidden ordo-list-item-checkbox" type="checkbox" name="orthoptera" id="orthoptera-item">
+                        <input class="visually-hidden ordo-list-item-checkbox" type="checkbox" name="ordo" value="orthoptera" id="orthoptera-item">
                         <label for="orthoptera-item">Прямокрылые</label>
                     </li>
                     <li class="ordo-list-item">
-                        <input class="visually-hidden ordo-list-item-checkbox" type="checkbox" name="neuroptera" id="neuroptera-item">
+                        <input class="visually-hidden ordo-list-item-checkbox" type="checkbox" name="ordo" value="neuroptera" id="neuroptera-item">
                         <label for="neuroptera-item">Сетчатокрылые</label>
                     </li>
                     <li class="ordo-list-item">
-                        <input class="visually-hidden ordo-list-item-checkbox" type="checkbox" name="odonata" id="odonata-item">
+                        <input class="visually-hidden ordo-list-item-checkbox" type="checkbox" name="ordo" value="odonata" id="odonata-item">
                         <label for="odonata-item">Стрекозы</label>
                     </li>
                     <li class="ordo-list-item">
-                        <input class="visually-hidden ordo-list-item-checkbox" type="checkbox" name="lepidoptera" id="lepidoptera-item">
+                        <input class="visually-hidden ordo-list-item-checkbox" type="checkbox" name="ordo" value="lepidoptera" id="lepidoptera-item">
                         <label for="lepidoptera-item">Чешуекрылые</label>
                     </li>
                     <li class="ordo-list-item">
-                        <input class="visually-hidden ordo-list-item-checkbox" type="checkbox" name="scorpiones" id="scorpiones-item">
+                        <input class="visually-hidden ordo-list-item-checkbox" type="checkbox" name="ordo" value="scorpiones" id="scorpiones-item">
                         <label for="scorpiones-item">Скорпионы</label>
                     </li>
                     <li class="ordo-list-item">
-                        <input class="visually-hidden ordo-list-item-checkbox" type="checkbox" name="scolopendromorpha" id="scolopendromorpha-item">
+                        <input class="visually-hidden ordo-list-item-checkbox" type="checkbox" name="ordo" value="scolopendromorpha" id="scolopendromorpha-item">
                         <label for="scolopendromorpha-item">Сколопендровые</label>
                     </li>
                 </ul>
@@ -95,8 +167,28 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
-   
+   name: 'aside-block',
+   data () {  
+    return {  
+      category: []   
+      }
+    },
+    methods: {
+        ...mapActions([
+            'GET_GOODS_CATEGORY_TO_STATE'
+        ]),
+        changeCategory(categoryVal) {
+            this.GET_GOODS_CATEGORY_TO_STATE(categoryVal)
+        }
+    },
+    computed: {
+        ...mapGetters([
+            'GOODS_CATEGORY'
+        ])
+    }
 }
 </script>
 

@@ -3,7 +3,7 @@
         <h1 class="visually-hidden">Список товаров</h1>
         <ul>
            <goodsListItem
-               v-for="good in GOODS"
+               v-for="good in filteredGoods"
                v-bind:good_data="good"
                v-bind:key="good.index"
                @addToCart="addToCart"
@@ -20,17 +20,7 @@ export default {
   name: 'goods-list',
   data () {  
     return {  
-      categories: [
-        {name: 'all', value: ''},
-        {name: 'insect-collections', value: ''},
-        {name: 'insects', value: ''},
-        {name: 'entomological-boxes', value: ''},
-        {name: 'entomological-pins', value: ''},
-        {name: 'tools', value: ''},
-        {name: 'books', value: ''},
-        {name: 'defence-tools', value: ''}
-      ],
-      selected: 'all',
+      category: '',
       sortedGoods: []   
   }
 },
@@ -46,30 +36,55 @@ export default {
       this.ADD_TO_CART(data)
     },
     sortByCategories(category) {
-      this.sortedGoods = []
-      this.PRODUCTS.map(function(item) {
-        if(item.category === category.name) {
-          this.sortedGoods.push(item)
+      let vm = this;
+      this.GOODS.map(function(item) {
+        if (item.category === category) {
+          vm.sortedGoods.push(item)
         }
       })
+    },
+    sortGoodsBySearchValue(value) {
+      this.sortedGoods = [...this.GOODS]
+      if (value) {
+        this.sortedGoods = this.sortedGoods.filter(function (item) {
+        return item.name.toLowerCase().includes(value.toLowerCase())
+      })
+      } else {
+        this.sortedGoods = this.GOODS
+      }     
     }
-    // sortGoodsBySearchValue(value) {
-
-    // }
   },
   watch: {
     SEARCH_VALUE() {
       this.sortGoodsBySearchValue(this.SEARCH_VALUE)
+    },
+    GOODS_CATEGORY() {
+      this.sortByCategories(this.GOODS_CATEGORY)
     }
   },
   mounted() {
     this.GET_GOODS_FROM_API()
+      .then((response) => {
+        if (response.data) {
+          this.sortByCategories()
+          this.sortGoodsBySearchValue()
+        }
+      })
+   
   },
   computed: {
     ...mapGetters([
       'GOODS',
-      'SEARCH_VALUE'
-    ])
+      'SEARCH_VALUE',
+      'GOODS_CATEGORY'
+    ]),
+    filteredGoods() {
+       if (this.sortedGoods.length) {
+         return this.sortedGoods
+       } else {
+         return this.GOODS
+       }
+    }
   }
 }
 </script>
