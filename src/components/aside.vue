@@ -12,7 +12,7 @@
                                 name="category" 
                                 v-model="category"
                                 @change="changeCategory(category)" 
-                                value="insect-collections" 
+                                value="insectCollections" 
                                 id="insect-collections-item"
                             >
                             <label 
@@ -27,7 +27,7 @@
                                 name="category" 
                                 v-model="category"
                                 @change="changeCategory(category)"  
-                                value="insects" 
+                                value="singleInsects" 
                                 id="insects-item"
                             >
                             <label 
@@ -107,7 +107,6 @@
                         </li>
                     </ul>
             </fieldset>
-<span>Отмеченные боксы: {{category}}</span>
             <fieldset class="ordos">
                 <legend>Отряды насекомых:</legend>
                 <ul class="ordo-list">
@@ -180,8 +179,8 @@ export default {
         ...mapActions([
             'GET_GOODS_CATEGORY_TO_STATE'
         ]),
-        changeCategory(categoryVal) {
-            this.GET_GOODS_CATEGORY_TO_STATE(categoryVal)
+        changeCategory(category) {
+            this.GET_GOODS_CATEGORY_TO_STATE(category)
         }
     },
     computed: {

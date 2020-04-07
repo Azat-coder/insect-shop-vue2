@@ -5,7 +5,7 @@
             :src="require(`../images/${good_data.image}.jpg`)"
             alt="">
             <h3>{{good_data.name}}</h3> 
-            <p>{{good_data.price}}</p>  
+            <p>{{good_data.price}} руб.</p>  
         </router-link>
         <div class="button-block">
             <button class="button" @click="addToCart">В корзину</button>
@@ -29,9 +29,6 @@ export default {
         addToCart() {
             this.$emit('addToCart',this.good_data)
         }
-    },
-    mounted() {
-        this.$set(this.good_data, 'quantity', 1)
     }
 }
 </script>

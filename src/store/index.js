@@ -13,8 +13,7 @@ Vue.use(VueAxios, axios)
 
 export default new Vuex.Store({
   state: {
-    error: null,
-    searchValue: ''
+    error: null
   },
   mutations: {
     setError(state, error) {

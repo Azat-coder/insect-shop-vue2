@@ -1,6 +1,7 @@
 export default {
     state: {
-        category: []
+        category: [],
+        searchValue: ''
     },
     getters: {
         GOODS_CATEGORY(state) {

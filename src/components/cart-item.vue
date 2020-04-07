@@ -39,6 +39,9 @@ export default {
         incrementItem() {
             this.$emit('incrementItem')
         }
+    },
+    mounted() {
+        this.$set(this.cart_item_data, 'quantity', 1)
     }
 }
 </script>

@@ -20,7 +20,7 @@ export default {
   name: 'goods-list',
   data () {  
     return {  
-      category: '',
+      category: [],
       sortedGoods: []   
   }
 },
@@ -36,9 +36,11 @@ export default {
       this.ADD_TO_CART(data)
     },
     sortByCategories(category) {
+      this.sortedGoods = []
       let vm = this;
       this.GOODS.map(function(item) {
-        if (item.category === category) {
+        for(let i = 0; i < category.length; i++)
+        if (item.category === category[i])  {
           vm.sortedGoods.push(item)
         }
       })

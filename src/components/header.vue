@@ -83,7 +83,6 @@ export default {
         ]),
         search(value) {
             this.GET_SEARCH_VALUE_TO_VUEX(value)
-            this.$router.push('/')
         }
     },
     computed: {
