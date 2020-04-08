@@ -109,84 +109,180 @@
             </fieldset>
             <fieldset class="ordos">
                 <legend>Отряды насекомых:</legend>
-                <ul class="ordo-list">
-                    <li class="ordo-list-item">
-                        <input class="visually-hidden ordo-list-item-checkbox" type="checkbox" name="ordo" value="mantodea" id="mantodea-item">
-                        <label for="mantodea-item">Богомоловые</label>
-                    </li>
-                    <li class="ordo-list-item">
-                        <input class="visually-hidden ordo-list-item-checkbox" type="checkbox" name="ordo" value="diptera" id="diptera-item">
-                        <label for="diptera-item">Двукрылые</label>
-                    </li>
-                    <li class="ordo-list-item">
-                        <input class="visually-hidden ordo-list-item-checkbox" type="checkbox" name="ordo" value="coleoptera" id="coleoptera-item">
-                        <label for="coleoptera-item">Жесткокрылые</label>
-                    </li>
-                    <li class="ordo-list-item">
-                        <input class="visually-hidden ordo-list-item-checkbox" type="checkbox" name="ordo" value="dermaptera" id="dermaptera-item">
-                        <label for="dermaptera-item">Кожистокрылые</label>
-                    </li>
-                    <li class="ordo-list-item">
-                        <input class="visually-hidden ordo-list-item-checkbox" type="checkbox" name="ordo" value="hymenoptera" id="hymenoptera-item">
-                        <label for="hymenoptera-item">Перепончатокрылые</label>
-                    </li>
-                    <li class="ordo-list-item">
-                        <input class="visually-hidden ordo-list-item-checkbox" type="checkbox" name="ordo" value="hemiptera" id="hemiptera-item">
-                        <label for="hemiptera-item">Полужесткокрылые</label>
-                    </li>
-                    <li class="ordo-list-item">
-                        <input class="visually-hidden ordo-list-item-checkbox" type="checkbox" name="ordo" value="orthoptera" id="orthoptera-item">
-                        <label for="orthoptera-item">Прямокрылые</label>
-                    </li>
-                    <li class="ordo-list-item">
-                        <input class="visually-hidden ordo-list-item-checkbox" type="checkbox" name="ordo" value="neuroptera" id="neuroptera-item">
-                        <label for="neuroptera-item">Сетчатокрылые</label>
-                    </li>
-                    <li class="ordo-list-item">
-                        <input class="visually-hidden ordo-list-item-checkbox" type="checkbox" name="ordo" value="odonata" id="odonata-item">
-                        <label for="odonata-item">Стрекозы</label>
-                    </li>
-                    <li class="ordo-list-item">
-                        <input class="visually-hidden ordo-list-item-checkbox" type="checkbox" name="ordo" value="lepidoptera" id="lepidoptera-item">
-                        <label for="lepidoptera-item">Чешуекрылые</label>
-                    </li>
-                    <li class="ordo-list-item">
-                        <input class="visually-hidden ordo-list-item-checkbox" type="checkbox" name="ordo" value="scorpiones" id="scorpiones-item">
-                        <label for="scorpiones-item">Скорпионы</label>
-                    </li>
-                    <li class="ordo-list-item">
-                        <input class="visually-hidden ordo-list-item-checkbox" type="checkbox" name="ordo" value="scolopendromorpha" id="scolopendromorpha-item">
-                        <label for="scolopendromorpha-item">Сколопендровые</label>
-                    </li>
-                </ul>
+                    <ul class="ordo-list">
+                        <li class="ordo-list-item">
+                            <input 
+                                class="visually-hidden ordo-list-item-checkbox" 
+                                type="checkbox" 
+                                name="ordo"
+                                v-model="ordo"
+                                @change="chooseOrdo(ordo)" 
+                                value="mantodea" 
+                                id="mantodea-item"
+                            >
+                            <label for="mantodea-item">Богомоловые</label>
+                        </li>
+                        <li class="ordo-list-item">
+                            <input 
+                                class="visually-hidden ordo-list-item-checkbox" 
+                                type="checkbox" 
+                                name="ordo"
+                                v-model="ordo"
+                                @change="chooseOrdo(ordo)" 
+                                value="diptera" 
+                                id="diptera-item"
+                            >
+                            <label for="diptera-item">Двукрылые</label>
+                        </li>
+                        <li class="ordo-list-item">
+                            <input 
+                                class="visually-hidden ordo-list-item-checkbox" 
+                                type="checkbox" 
+                                name="ordo"
+                                v-model="ordo"
+                                @change="chooseOrdo(ordo)" 
+                                value="coleoptera" 
+                                id="coleoptera-item"
+                            >
+                            <label for="coleoptera-item">Жесткокрылые</label>
+                        </li>
+                        <li class="ordo-list-item">
+                            <input 
+                                class="visually-hidden ordo-list-item-checkbox" 
+                                type="checkbox" 
+                                name="ordo"
+                                v-model="ordo"
+                                @change="chooseOrdo(ordo)" 
+                                value="dermaptera" 
+                                id="dermaptera-item"
+                            >
+                            <label for="dermaptera-item">Кожистокрылые</label>
+                        </li>
+                        <li class="ordo-list-item">
+                            <input 
+                                class="visually-hidden ordo-list-item-checkbox" 
+                                type="checkbox" 
+                                name="ordo"
+                                v-model="ordo"
+                                @change="chooseOrdo(ordo)" 
+                                value="hymenoptera" 
+                                id="hymenoptera-item"
+                            >
+                            <label for="hymenoptera-item">Перепончатокрылые</label>
+                        </li>
+                        <li class="ordo-list-item">
+                            <input 
+                                class="visually-hidden ordo-list-item-checkbox" 
+                                type="checkbox" 
+                                name="ordo"
+                                v-model="ordo"
+                                @change="chooseOrdo(ordo)" 
+                                value="hemiptera" 
+                                id="hemiptera-item"
+                            >
+                            <label for="hemiptera-item">Полужесткокрылые</label>
+                        </li>
+                        <li class="ordo-list-item">
+                            <input 
+                                class="visually-hidden ordo-list-item-checkbox" 
+                                type="checkbox" 
+                                name="ordo"
+                                v-model="ordo"
+                                @change="chooseOrdo(ordo)" 
+                                value="orthoptera" 
+                                id="orthoptera-item"
+                            >
+                            <label for="orthoptera-item">Прямокрылые</label>
+                        </li>
+                        <li class="ordo-list-item">
+                            <input 
+                                class="visually-hidden ordo-list-item-checkbox" 
+                                type="checkbox" 
+                                name="ordo"
+                                v-model="ordo"
+                                @change="chooseOrdo(ordo)" 
+                                value="neuroptera" 
+                                id="neuroptera-item"
+                            >
+                            <label for="neuroptera-item">Сетчатокрылые</label>
+                        </li>
+                        <li class="ordo-list-item">
+                            <input 
+                                class="visually-hidden ordo-list-item-checkbox" 
+                                type="checkbox" 
+                                name="ordo"
+                                v-model="ordo"
+                                @change="chooseOrdo(ordo)" 
+                                value="odonata" 
+                                id="odonata-item"
+                            >
+                            <label for="odonata-item">Стрекозы</label>
+                        </li>
+                        <li class="ordo-list-item">
+                            <input 
+                                class="visually-hidden ordo-list-item-checkbox" 
+                                type="checkbox" 
+                                name="ordo"
+                                v-model="ordo"
+                                @change="chooseOrdo(ordo)" 
+                                value="lepidoptera" 
+                                id="lepidoptera-item"
+                            >
+                            <label for="lepidoptera-item">Чешуекрылые</label>
+                        </li>
+                        <li class="ordo-list-item">
+                            <input 
+                                class="visually-hidden ordo-list-item-checkbox" 
+                                type="checkbox" 
+                                name="ordo"
+                                v-model="ordo"
+                                @change="chooseOrdo(ordo)" 
+                                value="scorpiones" 
+                                id="scorpiones-item"
+                            >
+                            <label for="scorpiones-item">Скорпионы</label>
+                        </li>
+                        <li class="ordo-list-item">
+                            <input 
+                                class="visually-hidden ordo-list-item-checkbox" 
+                                type="checkbox" 
+                                name="ordo"
+                                v-model="ordo"
+                                @change="chooseOrdo(ordo)" 
+                                value="scolopendromorpha" 
+                                id="scolopendromorpha-item"
+                            >
+                            <label for="scolopendromorpha-item">Сколопендровые</label>
+                        </li>
+                    </ul>
             </fieldset>
-
+<p>Список отрядов: {{ordo}}</p>
         </form>
     </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions } from 'vuex'
 
 export default {
    name: 'aside-block',
    data () {  
     return {  
-      category: []   
+      category: [],
+      ordo: []   
       }
     },
     methods: {
         ...mapActions([
-            'GET_GOODS_CATEGORY_TO_STATE'
+            'GET_GOODS_CATEGORY_TO_STATE',
+            'GET_ORDOS_CATEGORY_TO_STATE'
         ]),
         changeCategory(category) {
             this.GET_GOODS_CATEGORY_TO_STATE(category)
+        },
+        chooseOrdo(ordo) {
+            this.GET_ORDOS_CATEGORY_TO_STATE(ordo)
         }
-    },
-    computed: {
-        ...mapGetters([
-            'GOODS_CATEGORY'
-        ])
     }
 }
 </script>

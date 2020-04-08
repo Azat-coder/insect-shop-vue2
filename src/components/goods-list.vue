@@ -21,7 +21,8 @@ export default {
   data () {  
     return {  
       category: [],
-      sortedGoods: []   
+      sortedGoods: [],
+      ordo: []   
   }
 },
   components: {
@@ -39,10 +40,11 @@ export default {
       this.sortedGoods = []
       let vm = this;
       this.GOODS.map(function(item) {
-        for(let i = 0; i < category.length; i++)
-        if (item.category === category[i])  {
-          vm.sortedGoods.push(item)
-        }
+        for(let i = 0; i < category.length; i++) {
+            if (item.category === category[i])  {
+            vm.sortedGoods.push(item)          
+          }
+        }       
       })
     },
     sortGoodsBySearchValue(value) {
@@ -54,6 +56,19 @@ export default {
       } else {
         this.sortedGoods = this.GOODS
       }     
+    },
+    sortByOrdos(ordo) {
+      this.sortedGoods = []
+      let vm = this;
+      this.GOODS.map(function(item) {
+        for(let i = 0; i < ordo.length; i++) {
+            for(let j = 0; j < item.ordos.length; j++) {
+              if (item.ordos[j] === ordo[i] && vm.sortedGoods.indexOf(item) === -1)  {
+                vm.sortedGoods.push(item)
+            }           
+          }
+        } 
+      })
     }
   },
   watch: {
@@ -62,6 +77,9 @@ export default {
     },
     GOODS_CATEGORY() {
       this.sortByCategories(this.GOODS_CATEGORY)
+    },
+    GOODS_ORDO() {
+      this.sortByOrdos(this.GOODS_ORDO)
     }
   },
   mounted() {
@@ -78,7 +96,9 @@ export default {
     ...mapGetters([
       'GOODS',
       'SEARCH_VALUE',
-      'GOODS_CATEGORY'
+      'GOODS_CATEGORY',
+      'GOODS_ORDO'
+
     ]),
     filteredGoods() {
        if (this.sortedGoods.length) {

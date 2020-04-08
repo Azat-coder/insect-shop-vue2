@@ -7,8 +7,7 @@
                 alt="Логотип магазина" 
                 width="200" 
                 height="100">
-            </router-link>
-            
+            </router-link>           
             <div class="searchBlock">
                 <div class="input-container">
                     <input 
@@ -16,30 +15,24 @@
                         placeholder="Бабочки в рамке"
                         v-model="searchValue"
                     >
-                    <!-- <input class="search-categories" type="text" placeholder="Все категории"> -->
                     <button 
                     class="searchBlockButton" 
                     type="submit"
                     @click.prevent="search(searchValue)"
                     ></button>
                 </div>
-            </div>
-            
+            </div>           
             <div class="shopping-cart">
                 <router-link class="shopping-cart-link" to="/cart">
                     <span class="cart-text">Корзина</span>
                     <span class="cart-number">{{CART.length}}</span>
                 </router-link>
-            </div>
-        
-        
+            </div>      
             <div class="wishlist">
-                    <router-link to="/wishlist" class="wishlist-link">
-                <p class="wishlist-text">Мои <br/>желания</p>
-                    </router-link>
+                <router-link to="/wishlist" class="wishlist-link">
+                    <p class="wishlist-text">Мои <br/>желания</p>
+                </router-link>
             </div>
-            
-            
             <div class="nav-user-block">
                 <router-link 
                     to="/login" 

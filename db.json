@@ -6,42 +6,47 @@
         "price": 10000,
         "image": "1",
         "category": "insectCollections",
-        "ordos": ["coleoptera", "diptera"]
+        "ordos": ["coleoptera", "diptera", "lepidoptera", "mantodea", "hymenoptera", "hemiptera", "orthoptera"]
       },
       {
         "index": 2,
         "name": "Жесткокрылые",
         "price": 50000,
         "image": "2",
-        "category": "insectCollections"
+        "category": "insectCollections",
+        "ordos": ["coleoptera"]
       },
       {
         "index": 3,
         "name": "Чешуекрылые",
         "price": 10000,
         "image": "3",
-        "category": "insectCollections"
+        "category": "insectCollections",
+        "ordos": ["lepidoptera"]
       },
       {
         "index": 4,
         "name": "Насекомые озера Тургояк",
         "price": 5000,
         "image": "4",
-        "category": "insectCollections"
+        "category": "insectCollections",
+        "ordos": ["diptera", "coleoptera", "hymenoptera"]
       },
       {
         "index": 5,
         "name": "Перепончатокрылые",
         "price": 5000,
         "image": "5",
-        "category": "insectCollections"
+        "category": "insectCollections",
+        "ordos": ["hymenoptera"]
       },
       {
         "index": 6,
         "name": "Двукрылые",
         "price": 5000,
         "image": "6",
-        "category": "insectCollections"
+        "category": "insectCollections",
+        "ordos": ["diptera"]
       },
       {
         "index": 7,
@@ -55,14 +60,16 @@
         "name": "Майский жук",
         "price": 1000,
         "image": "8",
-        "category": "singleInsects"
+        "category": "singleInsects",
+        "ordos": ["coleoptera"]
       },
       {
         "index": 9,
         "name": "Панно",
         "price": 5000,
         "image": "9",
-        "category": "insectCollections"
+        "category": "insectCollections",
+        "ordos": ["diptera", "coleoptera", "dermaptera", "hymenoptera", "hemiptera", "orthoptera"]
       }
   ],
   "cart": [
