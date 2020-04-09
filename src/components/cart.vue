@@ -15,7 +15,7 @@
         
         <cartItem
             v-for="(item, index) in CART"
-            :key="item.article"
+            :key="item.index"
             :cart_item_data="item"
             @deleteFromCart="deleteFromCart(index)"
             @decrementItem="decrementItem(index)"

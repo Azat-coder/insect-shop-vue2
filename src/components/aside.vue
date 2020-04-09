@@ -256,7 +256,6 @@
                         </li>
                     </ul>
             </fieldset>
-<p>Список отрядов: {{ordo}}</p>
         </form>
     </div>
 </template>

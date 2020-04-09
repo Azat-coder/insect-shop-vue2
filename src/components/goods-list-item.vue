@@ -9,7 +9,7 @@
         </router-link>
         <div class="button-block">
             <button class="button" @click="addToCart">В корзину</button>
-            <button class="button">Добавить в Мои желания</button>
+            <button class="button" @click="addToWishlist">Добавить в Мои желания</button>
         </div>                  
     </li>
 </template>
@@ -28,6 +28,9 @@ export default {
     methods: {
         addToCart() {
             this.$emit('addToCart',this.good_data)
+        },
+        addToWishlist() {
+            this.$emit('addToWishlist',this.good_data)
         }
     }
 }

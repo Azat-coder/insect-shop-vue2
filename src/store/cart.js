@@ -49,6 +49,22 @@ export default {
         },
         INCREMENT: (state, index) => {
             state.cart[index].quantity++
-        }
+        },
+        SET_TO_CART_FROM_WISHLIST: (state, index) => {
+            if (state.cart.length) {
+                let isGoodInCart = false;
+                state.cart.map(function(item){
+                    if(item.index === state.wishlist[index]) {
+                        isGoodInCart = true
+            //  Вызов (Товар уже в корзине!)
+                    }
+                })
+                if (!isGoodInCart) {
+                    state.cart.push(state.wishlist[index])
+                }
+            }else {
+                state.cart.push(state.wishlist[index])
+            }
+        }           
     }
 }

@@ -7,6 +7,7 @@
                v-bind:good_data="good"
                v-bind:key="good.index"
                @addToCart="addToCart"
+               @addToWishlist="addToWishlist"
            /> 
         </ul>
     </div>
@@ -31,10 +32,14 @@ export default {
   methods: {
     ...mapActions([
       'GET_GOODS_FROM_API',
-      'ADD_TO_CART'
+      'ADD_TO_CART',
+      'ADD_TO_WISHLIST'
     ]),
     addToCart(data) {
       this.ADD_TO_CART(data)
+    },
+    addToWishlist(data) {
+      this.ADD_TO_WISHLIST(data)
     },
     sortByCategories(category) {
       this.sortedGoods = []
