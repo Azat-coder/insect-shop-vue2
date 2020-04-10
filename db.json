@@ -5,6 +5,7 @@
         "name": "Насекомые черноморского побережья",
         "price": 10000,
         "image": "1",
+        "hoverImage": "12",
         "category": "insectCollections",
         "ordos": ["coleoptera", "diptera", "lepidoptera", "mantodea", "hymenoptera", "hemiptera", "orthoptera", "odonata", "scolopendromorpha"]
       },
@@ -13,6 +14,7 @@
         "name": "Жесткокрылые",
         "price": 50000,
         "image": "2",
+        "hoverImage": "22",
         "category": "insectCollections",
         "ordos": ["coleoptera"]
       },
@@ -21,6 +23,7 @@
         "name": "Чешуекрылые",
         "price": 10000,
         "image": "3",
+        "hoverImage": "32",
         "category": "insectCollections",
         "ordos": ["lepidoptera"]
       },

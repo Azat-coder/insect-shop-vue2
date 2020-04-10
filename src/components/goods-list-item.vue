@@ -1,9 +1,15 @@
 <template>
     <li>
         <router-link to="/goodPage">
-            <img 
-            :src="require(`../images/${good_data.image}.jpg`)"
-            alt="">
+            <div class="image-container">
+                <img 
+                :src="require(`../images/${good_data.image}.jpg`)"
+                alt="">
+                <img class="hover-image"
+                :src="require(`../images/${good_data.image}2.jpg`)"
+                alt="">
+            </div>
+            
             <h3>{{good_data.name}}</h3> 
             <p>{{good_data.price}} руб.</p>  
         </router-link>
@@ -52,6 +58,20 @@ export default {
 
   img {
       width: 380px;  
+  }
+
+  .image-container {
+      position: relative;
+  }
+
+  .hover-image {
+      display: none;   
+  }
+
+ .image-container:hover .hover-image {
+      display: block;
+      position: absolute;
+      top: 0px;
   }
 
   .button-block {
