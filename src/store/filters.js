@@ -2,7 +2,9 @@ export default {
     state: {
         category: [],
         ordo: [],
-        searchValue: ''
+        searchValue: '',
+        minPrice: 0,
+        maxPrice: 50000
     },
     getters: {
         GOODS_CATEGORY(state) {
@@ -13,6 +15,12 @@ export default {
         },
         GOODS_ORDO(state) {
             return state.ordo
+        },
+        MIN_PRICE(state) {
+            return state.minPrice
+        },
+        MAX_PRICE(state) {
+            return state.maxPrice
         }
     },
     mutations: {
@@ -24,6 +32,12 @@ export default {
         },
         SET_ORDOS_CATEGORY_TO_STATE: (state, ordo) => {
             state.ordo = ordo
+        },
+        SET_MIN_PRICE_TO_STATE: (state, minPrice) => {
+            state.minPrice = minPrice
+        },
+        SET_MAX_PRICE_TO_STATE: (state, maxPrice) => {
+            state.maxPrice = maxPrice
         }
     },
     actions: {
@@ -35,6 +49,12 @@ export default {
         },
         GET_ORDOS_CATEGORY_TO_STATE({commit}, ordo) {
             commit('SET_ORDOS_CATEGORY_TO_STATE', ordo)
+        },
+        GET_MIN_PRICE_TO_STATE({commit}, minPrice) {
+            commit('SET_MIN_PRICE_TO_STATE', minPrice)
+        },
+        GET_MAX_PRICE_TO_STATE({commit}, maxPrice) {
+            commit('SET_MAX_PRICE_TO_STATE', maxPrice)
         }
     }
 }  

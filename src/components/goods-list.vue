@@ -21,9 +21,9 @@ export default {
   name: 'goods-list',
   data () {  
     return {  
-      category: [],
       sortedGoods: [],
-      ordo: []   
+      minPrice: 0,
+      maxPrice:50000
   }
 },
   components: {
@@ -74,6 +74,13 @@ export default {
           }
         } 
       })
+    },
+    sortByPrice() {
+      let vm = this   
+      this.sortedGoods = [...this.GOODS]
+      this.sortedGoods = this.sortedGoods.filter(function (item) {
+        return item.price >= vm.minPrice && item.price <= vm.maxPrice       
+      })
     }
   },
   watch: {
@@ -85,6 +92,14 @@ export default {
     },
     GOODS_ORDO() {
       this.sortByOrdos(this.GOODS_ORDO)
+    },
+    MIN_PRICE() {
+      this.minPrice = this.MIN_PRICE
+      this.sortByPrice()
+    },
+    MAX_PRICE() {
+      this.maxPrice = this.MAX_PRICE
+      this.sortByPrice()
     }
   },
   mounted() {
@@ -93,6 +108,7 @@ export default {
         if (response.data) {
           this.sortByCategories()
           this.sortGoodsBySearchValue()
+          this.sortByPrice()
         }
       })
    
@@ -102,7 +118,9 @@ export default {
       'GOODS',
       'SEARCH_VALUE',
       'GOODS_CATEGORY',
-      'GOODS_ORDO'
+      'GOODS_ORDO',
+      'MIN_PRICE',
+      'MAX_PRICE'
 
     ]),
     filteredGoods() {
