@@ -1,6 +1,6 @@
 <template>
     <li>
-        <router-link to="/goodPage">
+        <router-link :to="goodPageLink">
             <div class="image-container">
                 <img 
                 :src="require(`../images/${good_data.image}.jpg`)"
@@ -8,8 +8,7 @@
                 <img class="hover-image"
                 :src="require(`../images/${good_data.image}2.jpg`)"
                 alt="">
-            </div>
-            
+            </div>          
             <h3>{{good_data.name}}</h3> 
             <p>{{good_data.price}} руб.</p>  
         </router-link>
@@ -37,6 +36,11 @@ export default {
         },
         addToWishlist() {
             this.$emit('addToWishlist',this.good_data)
+        }
+    },
+    computed: {
+        goodPageLink() {
+            return `/goodPage/${this.good_data.index}`
         }
     }
 }

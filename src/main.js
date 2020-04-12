@@ -6,6 +6,7 @@ import Vuelidate from 'vuelidate'
 import firebase from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/database'
+import 'firebase/storage'
 
 
 Vue.config.productionTip = false
@@ -23,6 +24,8 @@ firebase.initializeApp({
   appId: "1:849727103747:web:e32ae113aa8e2b4cf97f36",
   measurementId: "G-XEDW073J8Y"
 })
+
+
 
 let app
 

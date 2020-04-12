@@ -27,6 +27,6 @@ export default {
     getters: {
         GOODS(state) {
             return state.goods
-        } 
+        }
     }
 }

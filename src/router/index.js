@@ -29,7 +29,7 @@ const routes = [
     component: () => import('@/components/wishlist.vue')
   },
   {
-    path: '/goodPage',
+    path: '/goodPage/:index',
     name: 'goodPage',
     meta: {layout: 'main'},
     component: () => import('@/views/goodPage.vue')
@@ -40,6 +40,12 @@ const routes = [
     meta: {layout: 'main'},
     component: () => import('@/components/cart.vue'),
     props: true
+  },
+  {
+    path: '/photoShow/:index',
+    name: 'photoShow',
+    meta: {layout: 'empty'},
+    component: () => import('@/views/photoShow.vue')
   }
   
 ]
