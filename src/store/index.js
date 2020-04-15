@@ -7,6 +7,7 @@ import VueAxios from 'vue-axios'
 import cart from './cart'
 import filters from './filters'
 import wishlist from './wishlist'
+import comment from './comment'
 
 
 Vue.use(Vuex)
@@ -34,7 +35,8 @@ export default new Vuex.Store({
     goods,
     cart,
     filters,
-    wishlist
+    wishlist,
+    comment
   }
 })
   

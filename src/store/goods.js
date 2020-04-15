@@ -1,4 +1,7 @@
-import Axios from "axios"
+// import Axios from "axios"
+import firebase from 'firebase/app'
+import 'firebase/database'
+
 
 export default {
     state: {
@@ -10,18 +13,17 @@ export default {
         }
     },
     actions: {
-        GET_GOODS_FROM_API({commit}) {
-            return Axios('http://localhost:3000/goods', {
-                method: "GET"
-            })
-            .then((goods) => {
-                commit('SET_GOODS_TO_STATE', goods.data)
-                return goods
-            })
-            .catch((error) => {
-                console.log(error)
-                return error
-            })
+         GET_GOODS_FROM_API({commit}) {   
+            try {
+                firebase.database().ref('goods/').once('value').then(resultGoods => {
+                    this.resultGoods = resultGoods.val()
+                    console.log(resultGoods.val())
+                    commit ('SET_GOODS_TO_STATE', this.resultGoods)
+                })            
+            } catch (e) {
+                commit('setError', e)
+                throw e
+            }
         }
     },
     getters: {

@@ -42,15 +42,9 @@
                 <p>{{GOODS[goodIndex-1].description}}</p>
             </div>
             <div class="good-page-feedback">
+                <container/>
+                <comment-form/>
                 <h3>Отзывы</h3>
-                <h2>Написать отзыв</h2>
-                <label> Имя
-                    <input type="text">
-                </label>
-                <label> Ваш отзыв
-                    <input type="text-area">
-                </label>
-                <button>Продолжить</button>
             </div>
         </div>
         
@@ -59,9 +53,15 @@
 </template>
 
 <script>
+import container from '../components/container.vue'
+import commentForm from '../components/commentForm.vue'
 import {mapGetters} from 'vuex'
 
 export default {
+    components: {
+        container,
+        commentForm
+    },
     computed: {
     ...mapGetters([
       'GOODS'

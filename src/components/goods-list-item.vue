@@ -36,7 +36,7 @@ export default {
         },
         addToWishlist() {
             this.$emit('addToWishlist',this.good_data)
-        }
+        }, 
     },
     computed: {
         goodPageLink() {

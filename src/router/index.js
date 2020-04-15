@@ -42,7 +42,7 @@ const routes = [
     props: true
   },
   {
-    path: '/photoShow/:index',
+    path: '/photoShow',
     name: 'photoShow',
     meta: {layout: 'empty'},
     component: () => import('@/views/photoShow.vue')
