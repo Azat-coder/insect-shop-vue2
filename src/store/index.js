@@ -8,6 +8,7 @@ import cart from './cart'
 import filters from './filters'
 import wishlist from './wishlist'
 import comment from './comment'
+import createPersistedState from "vuex-persistedstate"
 
 
 Vue.use(Vuex)
@@ -37,6 +38,7 @@ export default new Vuex.Store({
     filters,
     wishlist,
     comment
-  }
+  },
+  plugins: [createPersistedState()]
 })
   
