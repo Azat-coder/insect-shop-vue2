@@ -10,7 +10,8 @@
                 alt="">
             </div>          
             <h3>{{good_data.name}}</h3> 
-            <p>{{good_data.price}} руб.</p>  
+            <p>{{good_data.price}} руб.</p>
+            <p>Рейтинг: {{good_data.rating}}</p>  
         </router-link>
         <div class="button-block">
             <button class="button" @click="addToCart">В корзину</button>

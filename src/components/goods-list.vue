@@ -1,11 +1,13 @@
 <template>
     <div>
         <h1 class="visually-hidden">Список товаров</h1>
-        <button @click="sortListByName">Имя</button>
-        <button @click="sortListByPrice">Цена</button>
-        <button @click="sortListByCategory">Категория</button>
-        
-        <button @click="sortListByPriceReversed">Цена по убыванию</button>
+        <div class="sort-block">
+          <button @click="sortListByName">Имя</button>
+          <button @click="sortListByCategory">Категория</button>
+          <button @click="sortListByPrice">Цена по возрастанию</button>       
+          <button @click="sortListByPriceReversed">Цена по убыванию</button>
+          <button @click="sortListByRating">По рейтингу</button>
+        </div>      
         <ul>
            <goodsListItem
                v-for="good in filteredGoods"
@@ -15,6 +17,14 @@
                @addToWishlist="addToWishlist"
            /> 
         </ul>
+        <div class="pagination-block">
+          <button @click="prevPage">
+            Назад
+          </button>
+          <button @click="nextPage">
+            Вперед
+          </button>
+        </div>
     </div>
 </template>
 
@@ -30,7 +40,9 @@ export default {
       minPrice: 0,
       maxPrice: 50000,
       sortCrit: 'name',
-      sortDirection: 'forward'
+      sortDirection: 'forward',
+      pageNumber: 0,
+      size: 6
   }
 },
   components: {
@@ -48,54 +60,12 @@ export default {
     addToWishlist(data) {
       this.ADD_TO_WISHLIST(data)
     },
-    // sortByCategories(category) {
-    //   this.sortedGoods = []
-    //   let vm = this;
-    //   this.GOODS.map(function(item) {
-    //     for(let i = 0; i < category.length; i++) {
-    //         if (item.category === category[i])  {
-    //         vm.sortedGoods.push(item)          
-    //       }
-    //     }       
-    //   })
-    // },
-    // sortGoodsBySearchValue(value) {
-    //   this.sortedGoods = [...this.GOODS]
-    //   if (value) {
-    //     this.sortedGoods = this.sortedGoods.filter(function (item) {
-    //     return item.name.toLowerCase().includes(value.toLowerCase())
-    //   })
-    //   } else {
-    //     this.sortedGoods = [...this.GOODS]
-    //   }   
-    // },
-    // sortByOrdos(ordo) {
-    //   this.sortedGoods = []
-    //   let vm = this;
-    //   this.GOODS.map(function(item) {
-    //     for(let i = 0; i < ordo.length; i++) {
-    //         for(let j = 0; j < item.ordos.length; j++) {
-    //           if (item.ordos[j] === ordo[i] && vm.sortedGoods.indexOf(item) === -1)  {
-    //             vm.sortedGoods.push(item)
-    //         }           
-    //       }
-    //     } 
-    //   })
-    // },
-    // sortByPrice() {
-    //   let vm = this   
-    //   this.sortedGoods = [...this.GOODS]
-    //   this.sortedGoods = this.sortedGoods.filter(function (item) {
-    //     return item.price >= vm.minPrice && item.price <= vm.maxPrice       
-    //   })
-    // },
+    
     sortListByPrice() {
-      console.log("click")
       this.sortCrit = 'price'
       this.sortDirection = 'forward'
     },
     sortListByPriceReversed() {
-      console.log("click")
       this.sortCrit = 'price'
       this.sortDirection = 'reversed'
     },
@@ -104,34 +74,23 @@ export default {
     },
     sortListByName() {
       this.sortCrit = 'name'
+    },
+    sortListByRating() {
+      this.sortCrit = 'rating'
+      this.sortDirection = 'reversed'
+    },
+    nextPage(){
+      this.pageNumber++;
+    },
+    prevPage(){
+      this.pageNumber--;
     }
   },
-  // watch: {
-    // SEARCH_VALUE() {
-    //   this.sortGoodsBySearchValue(this.SEARCH_VALUE)
-    // },
-    // GOODS_CATEGORY() {
-    //   this.sortByCategories(this.GOODS_CATEGORY)
-    // },
-    // GOODS_ORDO() {
-    //   this.sortByOrdos(this.GOODS_ORDO)
-    // },
-    // MIN_PRICE() {
-    //   this.minPrice = this.MIN_PRICE
-    //   this.sortByPrice()
-    // },
-    // MAX_PRICE() {
-    //   this.maxPrice = this.MAX_PRICE
-    //   this.sortByPrice()
-    // }
-  // },
   mounted() {
     this.GET_GOODS_FROM_API()
       .then((response) => {
         if (response.data) {
-          // this.sortByCategories()
-          // this.sortGoodsBySearchValue()
-          // this.sortByPrice()
+         console.log('')
         }
       })
    
@@ -147,11 +106,6 @@ export default {
 
     ]),
     filteredGoods() {
-      //  if (this.sortedGoods.length) {
-      //    return this.sortedGoods
-      //  } else {
-      //    return this.GOODS
-      //  }
       const filtered = this.GOODS
         .filter(good => {
           return this.SEARCH_VALUE == '' || good.name.toLowerCase().indexOf(this.SEARCH_VALUE.toLowerCase()) !== -1;
@@ -173,7 +127,14 @@ export default {
       if (that.sortDirection === 'reversed') {
             sorted = sorted.reverse();
           }
-        return sorted
+        // return sorted
+
+
+          const start = this.pageNumber * this.size,
+          end = start + this.size;
+          let paginated = sorted.slice(start, end)
+
+        return paginated
     }
   }
 }

@@ -1,14 +1,12 @@
 <template>
      <div>
         <h1 class="visually-hidden">Главное содержимое</h1>
-        <vueSortBlock/>
         <vueGoodsList/>
     </div>
 </template>    
 
 <script>
 import goodsList from '@/components/goods-list.vue'
-import sortBlock from '@/components/sort-block.vue'
 
 
 export default {
@@ -18,8 +16,7 @@ export default {
     }
   },
   components: {
-    vueGoodsList: goodsList,
-    vueSortBlock: sortBlock,
+    vueGoodsList: goodsList
   }
 }
 </script>
