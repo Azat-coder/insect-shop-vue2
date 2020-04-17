@@ -3,11 +3,11 @@
         <router-link :to="goodPageLink">
             <div class="image-container">
                 <img 
-                :src="require(`../images/${good_data.image}.jpg`)"
-                alt="">
+                :src="imageURL"
+                alt="Изображение товара">
                 <img class="hover-image"
-                :src="require(`../images/${good_data.image}2.jpg`)"
-                alt="">
+                :src="hoverImageURL"
+                alt="Изображение товара">
             </div>          
             <h3>{{good_data.name}}</h3> 
             <p>{{good_data.price}} руб.</p>
@@ -21,6 +21,8 @@
 </template>
 
 <script>
+import firebase from 'firebase/app'
+
 export default {
     name: 'goods-list-item',
     props: {
@@ -30,6 +32,12 @@ export default {
                 return {}
             }
         }
+    },
+    data() {
+        return {
+            imageURL: '',
+            hoverImageURL: ''
+        }   
     },
     methods: {
         addToCart() {
@@ -43,6 +51,14 @@ export default {
         goodPageLink() {
             return `/goodPage/${this.good_data.index}`
         }
+    },
+    mounted() {
+        firebase.storage().ref('images').child(`${this.good_data.image}.jpg`).getDownloadURL().then(data =>{
+            this.imageURL = data}
+        ),
+        firebase.storage().ref('images').child(`${this.good_data.hoverImage}.jpg`).getDownloadURL().then(data =>{
+            this.hoverImageURL = data}
+        )
     }
 }
 </script>

@@ -10,7 +10,8 @@
         "image_4": "14",
         "category": "insectCollections",
         "ordos": ["coleoptera", "diptera", "lepidoptera", "mantodea", "hymenoptera", "hemiptera", "orthoptera", "odonata", "scolopendromorpha"],
-        "description": "Насекомые собраны методом ручного сбора в пятикилометровой зоне от черноморского побережья России в различных местообитаниях. Каждое насекомое снабжено этикеткой с описанием рода, вида и семейства, к которому оно принадлежит. Рамка 350 х 350 х 60 мм."
+        "description": "Насекомые собраны методом ручного сбора в пятикилометровой зоне от черноморского побережья России в различных местообитаниях. Каждое насекомое снабжено этикеткой с описанием рода, вида и семейства, к которому оно принадлежит. Рамка 350 х 350 х 60 мм.",
+        "rating": 0
       },
       {
         "index": 2,
@@ -19,7 +20,8 @@
         "image": "2",
         "hoverImage": "22",
         "category": "insectCollections",
-        "ordos": ["coleoptera"]
+        "ordos": ["coleoptera"],
+        "rating": 0
       },
       {
         "index": 3,
@@ -28,58 +30,68 @@
         "image": "3",
         "hoverImage": "32",
         "category": "insectCollections",
-        "ordos": ["lepidoptera"]
+        "ordos": ["lepidoptera"],
+        "rating": 0
       },
       {
         "index": 4,
         "name": "Насекомые озера Тургояк",
         "price": 5000,
         "image": "4",
+        "hoverImage": "42",
         "category": "insectCollections",
-        "ordos": ["diptera", "coleoptera", "hymenoptera", "neuroptera", "odonata", "lepidoptera"]
+        "ordos": ["diptera", "coleoptera", "hymenoptera", "neuroptera", "odonata", "lepidoptera"],
+        "rating": 0
       },
       {
         "index": 5,
         "name": "Перепончатокрылые",
         "price": 5000,
         "image": "5",
+        "hoverImage": "52",
         "category": "insectCollections",
-        "ordos": ["hymenoptera"]
+        "ordos": ["hymenoptera"],
+        "rating": 0
       },
       {
         "index": 6,
         "name": "Двукрылые",
         "price": 5000,
         "image": "6",
+        "hoverImage": "62",
         "category": "insectCollections",
-        "ordos": ["diptera"]
+        "ordos": ["diptera"],
+        "rating": 0
       },
       {
         "index": 7,
         "name": "Скорпион",
         "price": 1000,
         "image": "7",
+        "hoverImage": "72",
         "category": "singleInsects",
-        "ordos": ["scorpiones"]
+        "ordos": ["scorpiones"],
+        "rating": 0
       },
       {
         "index": 8,
         "name": "Майский жук",
         "price": 1000,
         "image": "8",
+        "hoverImage": "82",
         "category": "singleInsects",
-        "ordos": ["coleoptera"]
+        "ordos": ["coleoptera"],
+        "rating": 0
       },
       {
         "index": 9,
         "name": "Панно",
         "price": 5000,
         "image": "9",
+        "hoverImage": "92",
         "category": "insectCollections",
-        "ordos": ["diptera", "coleoptera", "dermaptera", "hymenoptera", "hemiptera", "orthoptera", "odonata"]
+        "ordos": ["diptera", "coleoptera", "dermaptera", "hymenoptera", "hemiptera", "orthoptera", "odonata"],
+        "rating": 0
       }
-  ],
-  "cart": [
-    
   ]
 }
