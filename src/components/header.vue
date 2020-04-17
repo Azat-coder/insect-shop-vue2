@@ -14,12 +14,13 @@
                         type="text" 
                         placeholder="Бабочки в рамке"
                         v-model="searchValue"
+                        @change="changeSearchValue(searchValue)"
                     >
-                    <button 
+                    <!-- <button 
                     class="searchBlockButton" 
                     type="submit"
                     @click.prevent="search(searchValue)"
-                    ></button>
+                    ></button> -->
                 </div>
             </div>           
             <div class="shopping-cart">
@@ -74,8 +75,8 @@ export default {
         ...mapActions([
             'GET_SEARCH_VALUE_TO_VUEX'
         ]),
-        search(value) {
-            this.GET_SEARCH_VALUE_TO_VUEX(value)
+        changeSearchValue(searchValue) {
+            this.GET_SEARCH_VALUE_TO_VUEX(searchValue)
         }
     },
     computed: {

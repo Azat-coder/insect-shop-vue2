@@ -286,6 +286,7 @@
                     </ul>
             </fieldset>
         </form>
+        <button @click="clear">Сбросить фильтры</button>
     </div>
 </template>
 
@@ -307,7 +308,8 @@ export default {
             'GET_GOODS_CATEGORY_TO_STATE',
             'GET_ORDOS_CATEGORY_TO_STATE',
             'GET_MIN_PRICE_TO_STATE',
-            'GET_MAX_PRICE_TO_STATE'
+            'GET_MAX_PRICE_TO_STATE',
+            'CLEAR_FILTERS'
         ]),
         changeCategory(category) {
             this.GET_GOODS_CATEGORY_TO_STATE(category)
@@ -325,6 +327,13 @@ export default {
                 this.minPrice = temp;
             }
             
+        },
+        clear() {
+            this.CLEAR_FILTERS()
+            this.category = [] 
+            this.ordo = []
+            this.minPrice = 0
+            this.maxPrice = 50000
         }
     }
 }

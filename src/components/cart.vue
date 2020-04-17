@@ -23,8 +23,16 @@
         />
 
         <div class="cart-bottom-block"
-        v-if="CART.length">
-            <p>В корзине <span>{{cartTotalCount}}</span>  товаров на сумму <span>{{cartTotalPrice}}</span> руб.</p>
+            v-if="CART.length">
+            <p>В корзине 
+                <span>{{cartTotalCount}}</span>  
+                товаров на сумму 
+                <span>{{cartTotalPrice}}</span> 
+                руб.
+            </p>
+            <button class="buy-button">
+                Купить
+            </button>
         </div>
     </div>
 </template>
@@ -112,6 +120,7 @@
 }
 
 .cart-bottom-block {
+    display: flex;
     padding: 20px;
     font-weight: bold;
     font-size: 24px;
@@ -119,5 +128,9 @@
 
 .cart-bottom-block span {
     color: green;
+}
+
+.buy-button  {
+    margin-left: 150px;
 }
 </style>

@@ -3,13 +3,26 @@
         <section class="sortblock">
             <p class="sortblock-sort">Сортировать:</p>
             <ul class="sortblock-sortby">
-                <li class="active">По цене</li>
-                <li>По типу</li>
+                <li 
+					class="active"
+					@click="sortParam = 'price'"
+				>
+				По цене
+				</li>
+                <li>По категории</li>
                 <li>По названию</li>
             </ul>
         </section>
     </div>
 </template>
+
+// <script>
+// export default {
+// 	data() {
+// 		sortParam: ''
+// 	}
+// }
+// </script>
 
 <style scoped>
 

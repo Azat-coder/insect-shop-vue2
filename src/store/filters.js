@@ -38,7 +38,14 @@ export default {
         },
         SET_MAX_PRICE_TO_STATE: (state, maxPrice) => {
             state.maxPrice = maxPrice
-        }
+        },
+        CLEAR_FILTER_STATE: (state) => {
+            state.category = []
+            state.ordo = []
+            state.searchValue = ''
+            state.minPrice = 0
+            state.maxPrice = 50000
+        } 
     },
     actions: {
         GET_GOODS_CATEGORY_TO_STATE({commit}, category) {
@@ -55,6 +62,9 @@ export default {
         },
         GET_MAX_PRICE_TO_STATE({commit}, maxPrice) {
             commit('SET_MAX_PRICE_TO_STATE', maxPrice)
+        },
+        CLEAR_FILTERS({commit}) {
+            commit('CLEAR_FILTER_STATE')
         }
     }
 }  
