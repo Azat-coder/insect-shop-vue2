@@ -46,8 +46,14 @@ const routes = [
     name: 'photoShow',
     meta: {layout: 'empty'},
     component: () => import('@/views/photoShow.vue')
-  }
-  
+  },
+  {
+    path: '/myOrders',
+    name: 'myOrders',
+    meta: {layout: 'main'},
+    component: () => import('@/components/myOrders.vue'),
+    props: true
+  } 
 ]
 
 

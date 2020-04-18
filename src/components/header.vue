@@ -16,11 +16,6 @@
                         v-model="searchValue"
                         @change="changeSearchValue(searchValue)"
                     >
-                    <!-- <button 
-                    class="searchBlockButton" 
-                    type="submit"
-                    @click.prevent="search(searchValue)"
-                    ></button> -->
                 </div>
             </div>           
             <div class="shopping-cart">
@@ -35,23 +30,37 @@
                 </router-link>
             </div>
             <div class="nav-user-block">
-                <router-link 
-                    to="/login" 
-                    class="button"
-                    >
-                    Войти
-                </router-link>
-                <router-link 
-                    to="/registration" 
-                    class="button"
-                    >
-                    Зарегистрироваться
-                    </router-link>
-                <div class="profile-block">
-                    <a href="">Мои заказы</a>
-                    <a href="">Мои желания</a>
-                    <a href="" @click.prevent="logout">Выйти</a>
-                </div>   
+                <ul @mouseover="dropdown" @mouseleave="dropup">
+                    <li>
+                        <router-link 
+                            to="/login" 
+                            class="button"
+                            >
+                            Войти
+                        </router-link>
+                    </li>
+                    <li>
+                        <router-link
+                            to="/registration" 
+                            class="button registration-button"
+                            >
+                            Зарегистрироваться
+                        </router-link>
+                    </li>
+                    <li>
+                        <ul class="profile-block" id="profile-block">
+                            <li>
+                                <router-link to="/myOrders">Мои заказы</router-link>
+                            </li>
+                            <li>
+                                <a href="">Мои желания</a>
+                            </li>
+                            <li>
+                                <a href="" @click.prevent="logout">Выйти</a>
+                            </li>
+                        </ul>   
+                    </li>
+                </ul>               
             </div>           
         </div>
     </div> 
@@ -77,6 +86,14 @@ export default {
         ]),
         changeSearchValue(searchValue) {
             this.GET_SEARCH_VALUE_TO_VUEX(searchValue)
+        },
+        dropdown() {
+            const el = document.getElementById('profile-block');
+            el.style.display = "block"
+        },
+        dropup() {
+            const el = document.getElementById('profile-block');
+            el.style.display = "none"
         }
     },
     computed: {
@@ -229,18 +246,6 @@ export default {
         position: relative;
     }
 
-    /* .input-container::before {
-        position: absolute;
-        top: 0px;
-        left: 330px;
-        overflow: hidden;
-        content: '';
-        width: 48px;
-        height: 48px;
-        background: url(../assets/lens.svg);
-        background-color: green
-    } */
-
     .profile-block {
         position: absolute;
         top: 45px;
@@ -252,5 +257,11 @@ export default {
     .profile-block a {
         text-decoration: none;
         font-weight: bold;
-    }      
+    }   
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    } 
 </style> 
