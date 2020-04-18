@@ -11,7 +11,7 @@
         "category": "insectCollections",
         "ordos": ["coleoptera", "diptera", "lepidoptera", "mantodea", "hymenoptera", "hemiptera", "orthoptera", "odonata", "scolopendromorpha"],
         "description": "Насекомые собраны методом ручного сбора в пятикилометровой зоне от черноморского побережья России в различных местообитаниях. Каждое насекомое снабжено этикеткой с описанием рода, вида и семейства, к которому оно принадлежит. Рамка 350 х 350 х 60 мм.",
-        "rating": 0
+        "rating": 2
       },
       {
         "index": 2,
@@ -19,9 +19,12 @@
         "price": 50000,
         "image": "2",
         "hoverImage": "22",
+        "image_3": "23",
+        "image_4": "24",
         "category": "insectCollections",
         "ordos": ["coleoptera"],
-        "rating": 0
+        "description": "",
+        "rating": 1
       },
       {
         "index": 3,
@@ -29,8 +32,11 @@
         "price": 10000,
         "image": "3",
         "hoverImage": "32",
+        "image_3": "33",
+        "image_4": "34",
         "category": "insectCollections",
         "ordos": ["lepidoptera"],
+        "description": "",
         "rating": 0
       },
       {
@@ -39,9 +45,12 @@
         "price": 5000,
         "image": "4",
         "hoverImage": "42",
+        "image_3": "43",
+        "image_4": "44",
         "category": "insectCollections",
         "ordos": ["diptera", "coleoptera", "hymenoptera", "neuroptera", "odonata", "lepidoptera"],
-        "rating": 0
+        "description": "",
+        "rating": 1
       },
       {
         "index": 5,
@@ -49,8 +58,11 @@
         "price": 5000,
         "image": "5",
         "hoverImage": "52",
+        "image_3": "53",
+        "image_4": "54",
         "category": "insectCollections",
         "ordos": ["hymenoptera"],
+        "description": "",
         "rating": 0
       },
       {
@@ -59,8 +71,11 @@
         "price": 5000,
         "image": "6",
         "hoverImage": "62",
+        "image_3": "63",
+        "image_4": "64",
         "category": "insectCollections",
         "ordos": ["diptera"],
+        "description": "",
         "rating": 0
       },
       {
@@ -69,8 +84,11 @@
         "price": 1000,
         "image": "7",
         "hoverImage": "72",
+        "image_3": "73",
+        "image_4": "74",
         "category": "singleInsects",
         "ordos": ["scorpiones"],
+        "description": "",
         "rating": 0
       },
       {
@@ -79,8 +97,11 @@
         "price": 1000,
         "image": "8",
         "hoverImage": "82",
+        "image_3": "83",
+        "image_4": "84",
         "category": "singleInsects",
         "ordos": ["coleoptera"],
+        "description": "",
         "rating": 0
       },
       {
@@ -89,8 +110,11 @@
         "price": 5000,
         "image": "9",
         "hoverImage": "92",
+        "image_3": "93",
+        "image_4": "94",
         "category": "insectCollections",
         "ordos": ["diptera", "coleoptera", "dermaptera", "hymenoptera", "hemiptera", "orthoptera", "odonata"],
+        "description": "",
         "rating": 0
       }
   ]
