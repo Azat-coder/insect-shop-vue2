@@ -3,6 +3,7 @@
         <h1 class="visually-hidden">Страница товара{{goodIndex}}</h1>
         <div class="good-page-top-block">
             <div class="good-page-info">
+                <router-link to="/">Назад с списку товаров</router-link>
                 <h2>{{good.name}}</h2> 
                 <p class="good-page-info-price">{{good.price}} руб.</p>
                 <p class="good-page-info-rating">Рейтинг товара: {{good.rating}}</p>
@@ -19,21 +20,21 @@
                         alt="Фото товара 1"
                     >
                 </router-link>
-                <router-link to="">
+                <router-link :to="photoShowLink">
                     <img 
                         class="good-page-photo-small"
                         :src="hoverImageURL"
                         alt="Фото товара 2"
                     >
                 </router-link>
-                <router-link to="">
+                <router-link :to="photoShowLink">
                     <img 
                         class="good-page-photo-small"
                         :src="image3URL"
                         alt="Фото товара 3"
                     >
                 </router-link> 
-                <router-link to=""> 
+                <router-link :to="photoShowLink"> 
                     <img 
                         class="good-page-photo-small"
                         :src="image4URL"
@@ -81,11 +82,11 @@ export default {
       'ADD_TO_WISHLIST'
     ]),
         addToCart(data) {
-        this.ADD_TO_CART(data)
+          this.ADD_TO_CART(data)
         },
         addToWishlist(data) {
-        this.ADD_TO_WISHLIST(data)
-        },
+          this.ADD_TO_WISHLIST(data)
+        }
     },
     computed: {
         ...mapGetters([

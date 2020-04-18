@@ -1,27 +1,53 @@
 <template>
     <div class="photoShow">
+        <div class="little-photo-block">
+            <img 
+                class="good-page-photo-little"
+                :src="imageURL"
+                alt="Фото товара 1"
+                @click="photoClick1"
+            >
+            <img 
+                class="good-page-photo-little"
+                :src="hoverImageURL"
+                alt="Фото товара 2"
+                @click="photoClick2"
+            >
+            <img 
+                class="good-page-photo-little"
+                :src="image3URL"
+                alt="Фото товара 3"
+                @click="photoClick3"
+            >
+            <img 
+                class="good-page-photo-little"
+                :src="image4URL"
+                alt="Фото товара 4"
+                @click="photoClick4"
+            >
+        </div>
         <div class="photo-block">
-             <img 
-                class="good-page-photo-main"
+            <img 
+                class="good-page-photo-main good-page-photo-main-1"
                 :src="imageURL"
                 alt="Фото товара 1"
             >
             <img 
-                class="good-page-photo-main"
+                class="good-page-photo-main good-page-photo-main-2"
                 :src="hoverImageURL"
                 alt="Фото товара 2"
             >
             <img 
-                class="good-page-photo-main"
+                class="good-page-photo-main good-page-photo-main-3"
                 :src="image3URL"
                 alt="Фото товара 3"
             >
             <img 
-                class="good-page-photo-main"
+                class="good-page-photo-main good-page-photo-main-4"
                 :src="image4URL"
                 alt="Фото товара 4"
             >
-        </div>        
+        </div> 
     </div>
 </template>
 
@@ -36,6 +62,48 @@ export default {
             hoverImageURL: '',
             image3URL: '',
             image4URL: ''
+        }   
+    },
+    methods: {
+        photoClick1() {
+            let elem1 = document.querySelector(".good-page-photo-main-1")
+            let elem2 = document.querySelector(".good-page-photo-main-2")
+            let elem3 = document.querySelector(".good-page-photo-main-3")
+            let elem4 = document.querySelector(".good-page-photo-main-4")
+                elem2.style.zIndex = 1;
+                elem3.style.zIndex = 1;
+                elem4.style.zIndex = 1;
+                elem1.style.zIndex = 100;
+        },
+        photoClick2() {
+             let elem1 = document.querySelector(".good-page-photo-main-1")
+            let elem2 = document.querySelector(".good-page-photo-main-2")
+            let elem3 = document.querySelector(".good-page-photo-main-3")
+            let elem4 = document.querySelector(".good-page-photo-main-4")
+                elem1.style.zIndex = 1;
+                elem3.style.zIndex = 1;
+                elem4.style.zIndex = 1;
+                elem2.style.zIndex = 100;
+        },
+        photoClick3() {
+             let elem1 = document.querySelector(".good-page-photo-main-1")
+            let elem2 = document.querySelector(".good-page-photo-main-2")
+            let elem3 = document.querySelector(".good-page-photo-main-3")
+            let elem4 = document.querySelector(".good-page-photo-main-4")
+                elem2.style.zIndex = 1;
+                elem1.style.zIndex = 1;
+                elem4.style.zIndex = 1;
+                elem3.style.zIndex = 100;
+        },
+        photoClick4() {
+            let elem1 = document.querySelector(".good-page-photo-main-1")
+            let elem2 = document.querySelector(".good-page-photo-main-2")
+            let elem3 = document.querySelector(".good-page-photo-main-3")
+            let elem4 = document.querySelector(".good-page-photo-main-4")
+                elem2.style.zIndex = 1;
+                elem3.style.zIndex = 1;
+                elem1.style.zIndex = 1;
+                elem4.style.zIndex = 100;
         }   
     },
     mounted() {
@@ -67,15 +135,33 @@ export default {
 </script>
 
 <style scoped>
-.photo-block {
+.photoShow {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #0b0b0b;
-    opacity: 0.8;
 }
 
-img {
-    width: 1200px;
+.little-photo-block {
+   display: flex;
+   flex-direction: column;
+   width: 200px;
+   height: 600px;
+   align-items: center;
+   justify-content: space-around;
+}
+
+.good-page-photo-little {
+    width: 120px;
+}
+
+.photo-block {
+    position: relative;
+    width: 900px;
+}
+
+.good-page-photo-main {
+    position: absolute;
+    width: 900px; 
+}
+.good-page-photo-main-1 {
+    z-index: 2;
 }
 </style>

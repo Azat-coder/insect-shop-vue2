@@ -9,9 +9,10 @@ import 'firebase/database'
 import 'firebase/storage'
 
 
+
+
 Vue.config.productionTip = false
 Vue.use(Vuelidate)
-
 
 
 firebase.initializeApp({

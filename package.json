@@ -9,6 +9,7 @@
     "server": "json-server --watch db.json"
   },
   "dependencies": {
+    "@chenfengyuan/vue-carousel": "^1.0.3",
     "axios": "^0.19.2",
     "core-js": "^3.6.4",
     "firebase": "^7.13.0",
