@@ -33,6 +33,7 @@
             <button class="buy-button">
                 Купить
             </button>
+            <button @click="clearCart">Очистить корзину</button>
         </div>
     </div>
 </template>
@@ -58,7 +59,8 @@
         ...mapActions([
             'DELETE_FROM_CART',
             'DECREMENT_CART_ITEM',
-            'INCREMENT_CART_ITEM'
+            'INCREMENT_CART_ITEM',
+            'CLEAR_CART'
         ]),
         deleteFromCart(index) {
             this.DELETE_FROM_CART(index)
@@ -68,6 +70,9 @@
         },
         incrementItem(index) {
             this.INCREMENT_CART_ITEM(index)
+        },
+        clearCart() {
+            this.CLEAR_CART()
         }
     },
     computed: {

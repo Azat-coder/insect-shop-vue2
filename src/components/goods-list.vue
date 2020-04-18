@@ -127,8 +127,6 @@ export default {
       if (that.sortDirection === 'reversed') {
             sorted = sorted.reverse();
           }
-        // return sorted
-
 
           const start = this.pageNumber * this.size,
           end = start + this.size;

@@ -19,6 +19,9 @@ export default {
         },
         INCREMENT_CART_ITEM({commit}, index) {
             commit('INCREMENT', index)
+        },
+        CLEAR_CART({commit}) {
+            commit('CLEAR_ALL_CART')
         }
     },
     mutations: {
@@ -44,8 +47,10 @@ export default {
         DECREMENT: (state, index) => {
             if (state.cart[index].quantity > 1) {
                 state.cart[index].quantity--
-            } 
-            
+            }           
+        },
+        CLEAR_ALL_CART: (state) => {
+            state.cart = []
         },
         INCREMENT: (state, index) => {
             state.cart[index].quantity++
