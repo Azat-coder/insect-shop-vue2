@@ -3,15 +3,20 @@
         <router-link :to="goodPageLink">
             <div class="image-container">
                 <img 
-                :src="imageURL"
-                alt="Изображение товара">
-                <img class="hover-image"
-                :src="hoverImageURL"
-                alt="Изображение товара">
+                    class="main-image"
+                    :src="imageURL"
+                    alt="Изображение товара">
+                <img 
+                    class="hover-image"
+                    :src="hoverImageURL"
+                    alt="Изображение товара">
             </div>          
-            <h3>{{good_data.name}}</h3> 
-            <p>{{good_data.price}} руб.</p>
-            <p>Рейтинг: {{good_data.rating}}</p>  
+            <h3 class="good-name">{{good_data.name}}</h3> 
+            <div class="good-card-bottom-block">
+                <p class="good-price">{{good_data.price}} руб.</p>
+                <p class="good-rating">Рейтинг: {{good_data.rating}}</p>
+            </div>
+  
         </router-link>
         <div class="button-block">
             <button class="button" @click="addToCart">В корзину</button>
@@ -68,13 +73,14 @@ export default {
     margin-bottom: 2em;
     width: 380px;
     height: 450px; 
-    border: #eeeeee 2px solid;
+    border: #739e0c 2px solid;
+    border-radius: 15px;
     margin-right: 20px;   
   }
 
   a {
     text-decoration: none;
-    color: #283136;
+    color: #739e0c;
   }
 
   img {
@@ -95,6 +101,11 @@ export default {
       top: 0px;
   }
 
+  .main-image,
+  .hover-image {
+      border-radius: 12px 12px 0px 0px;
+  }
+
   .button-block {
       display: flex;
       justify-content: space-around;
@@ -106,23 +117,46 @@ export default {
 	width: 150px;
 	height: 50px;
 	color: #ffffff;
-	background-color: #fb565a;
+	background-color: #739e0c;
 	text-decoration: none;
-	font-weight: 500;
+	font-weight: 700;
 	text-transform: uppercase;
 	border: none;
 	border-radius: 3px;	
+    font-size: 14px;
 }
 
 .button:hover,
 .button:focus {
-	background-color: #e74246;
+	background-color: #496704;
     cursor: pointer;
 	}
 	
 .button:active {
-	background-color: #d7373b;
+	background-color: #21e40f;
 	color: rgba(255, 255, 255, 0.3);
 	box-shadow: 0 3px rgba(0, 0, 0, 0.1) inset;
+}
+
+.good-card-bottom-block {
+    display: flex; 
+    margin-left: 20px;
+
+}
+
+.good-name {
+    margin: 0;
+    padding: 0;
+    margin-left: 20px;
+}
+
+.good-price,
+.good-rating {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.good-price {
+    margin-right: 120px;
 }
 </style>

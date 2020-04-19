@@ -3,7 +3,7 @@
         <h2 class="visually-hidden">Категории товара</h2>
         <form class="filter" action="">
             <fieldset class="filter-item">
-                <legend>Стоимость:</legend>
+                <legend class="legend-main">Стоимость:</legend>
                 <div class="range-filter">
                     <div class="range-controls">
                         <input 
@@ -286,7 +286,12 @@
                     </ul>
             </fieldset>
         </form>
-        <button @click="clear">Сбросить фильтры</button>
+        <button 
+            @click="clear"
+            class="button button-clear"
+        >
+        Сбросить фильтры
+        </button>
     </div>
 </template>
 
@@ -341,8 +346,9 @@ export default {
 
 <style scoped>
 .container {
-        background-color:#eeeeee;  
+        background-color:#739e0c;  
         min-width: 300px;  
+        padding-left: 20px;
     } 
 
 .categories,
@@ -351,6 +357,7 @@ export default {
 	padding: 0;
 	border: none;
 	margin-bottom: 45px;
+    color: #ffffff;
 }
 
 .categories {
@@ -360,6 +367,7 @@ export default {
 .categories legend,
 .ordos legend {
 	margin-bottom: 20px;
+    text-transform: uppercase;
 }
 
 .categories-list,
@@ -412,6 +420,11 @@ input[type="checkbox"] {
 
 legend {
     font-weight: bold;
+    color: #ffffff;
+}
+
+.legend-main {
+    padding-top: 20px;
 }
 
 ul {
@@ -422,12 +435,12 @@ ul {
 	margin: 0;
 	padding: 0;
 	border: none;
-	margin-bottom: 60px;
+	margin-bottom: 40px;
 }
 
 .range-filter {
 	width: 260px;
-	margin-top: 49px;
+	margin-top: 25px;
 }
 
 .filter-item legend {
@@ -458,8 +471,9 @@ ul {
 	width: 50%;
 	font-size: 16px;
 	text-transform: uppercase;
+    font-weight: bold;
     text-align: center;
-	color: #283136;
+	color: #739e0c;
     border-radius: 5px;
 	background-color: #f1f1f1;
     margin-right: 10px;
@@ -488,7 +502,7 @@ ul {
 input[type=range]::-webkit-slider-runnable-track {
   width: 100%;
   cursor: pointer;
-  background: green;
+  background: #739e0c;
   border-radius: 1.3px;
 }
 
@@ -513,4 +527,30 @@ input[type=range]:focus {
     margin-top: -14px;
     z-index: 2;
 }
-</style> scoped>
+
+.button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 120px;
+	height: 35px;
+	color: #739e0c;
+	background-color: #ffffff;
+	text-decoration: none;
+	font-weight: 700;
+	text-transform: uppercase;
+	border: none;
+	border-radius: 3px;	
+    font-size: 14px;
+}
+
+.button:hover,
+.button:focus {
+    color:#ffffff;
+    background-color: #496704;
+}
+
+.button-clear {
+    margin-left: 70px;
+}
+</style> 

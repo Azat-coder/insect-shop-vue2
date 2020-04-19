@@ -1,12 +1,37 @@
 <template>
-    <div>
+    <div class="goods-list">
         <h1 class="visually-hidden">Список товаров</h1>
         <div class="sort-block">
-          <button @click="sortListByName">Имя</button>
-          <button @click="sortListByCategory">Категория</button>
-          <button @click="sortListByPrice">Цена по возрастанию</button>       
-          <button @click="sortListByPriceReversed">Цена по убыванию</button>
-          <button @click="sortListByRating">По рейтингу</button>
+          <button 
+              class="button" 
+              @click="sortListByName"
+          >
+          Имя
+          </button>
+          <button 
+              class="button" 
+              @click="sortListByCategory"
+          >
+          Категория
+          </button>
+          <button 
+              class="button" 
+              @click="sortListByPrice"
+          >
+          Цена ↑
+          </button>       
+          <button 
+              class="button" 
+              @click="sortListByPriceReversed"
+          >
+          Цена ↓
+          </button>
+          <button 
+              class="button" 
+              @click="sortListByRating"
+          >
+          Рейтинг
+          </button>
         </div>      
         <ul>
            <goodsListItem
@@ -18,14 +43,16 @@
            /> 
         </ul>
         <div class="pagination-block">
-          <button 
-          :disabled = "pageNumber===0"
-          @click="prevPage">
+          <button
+            class="button" 
+            :disabled = "pageNumber===0"
+            @click="prevPage">
             Назад
           </button>
-          <button 
-          @click="nextPage"
-          :disabled = "filteredGoods.length < this.size"
+          <button
+            class="button" 
+            @click="nextPage"
+            :disabled = "filteredGoods.length < this.size"
           >
             Вперед
           </button>
@@ -154,6 +181,44 @@ export default {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-around;
-    }    
+    }  
+
+    .sort-block {
+      display: flex;
+      justify-content: space-around;
+      width: 600px;
+      height: 50px;
+      align-items: center;
+    }
+
+    .pagination-block {
+      position: relative;
+      left: 50px;
+      bottom: 23px;
+      display: flex;
+    }  
+
+    .button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 70px;
+      height: 25px;
+      color: #ffffff;
+      background-color: #739e0c;
+      text-decoration: none;
+      font-weight: 700;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 3px;	
+      font-size: 12px;
+    }
+    .button:first-child {
+      margin-right: 10px;
+    }
+
+    .button:disabled {
+      background-color: #d4d4d4;
+    }
 
 </style> 

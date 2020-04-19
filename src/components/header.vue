@@ -124,7 +124,7 @@ export default {
         font: inherit;
         padding: 10px;
         border: lawngreen 2px solid;
-        border-radius: 3px;
+        border-radius: 15px;
     }
     .search-categories {
         width: 100px;
@@ -140,21 +140,9 @@ export default {
         top: 10px;
         left: 10px;
     }
-
-    .searchBlockButton {
-        position: relative;
-        top: 16px;
-        left: 5px;
-        width: 40px;
-        height: 40px;
-        background: url(../assets/lens.svg);
-        background-color: transparent;
-        border: none;
-        cursor: pointer;
-    }
-
+    
     .header-block {
-        background-color: #eeeeee
+        background-color: #739e0c;
     }
 
     .header-container {
@@ -200,6 +188,7 @@ export default {
         position: relative;
         margin-left: 50px;
         text-decoration: none;
+        color: #ffffff;
     }
     
     .cart-text::before {
@@ -228,6 +217,7 @@ export default {
         position: absolute;
         top: 15px;
         left: 70px;
+        color: #ffffff;
     }
 
     .wishlist {
@@ -241,6 +231,9 @@ export default {
         font-weight: bold;
     }
 
+    .wishlist-text {
+        color: #ffffff;
+    }
 
     .wishlist-text::before {
         position: absolute;
@@ -285,4 +278,13 @@ export default {
         margin: 0;
         padding: 0;
     } 
+
+    .auth-block {
+        color: #ffffff;
+        font-weight: bold;
+    }
+
+    .reg-block a {
+        color: #ffffff;
+    }
 </style> 

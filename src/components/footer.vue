@@ -14,13 +14,13 @@ export default {
 
 <style scoped>
     .footer-block {
-        background-color:rgb(33, 102, 5, 0.3);
+        background-color: #739e0c;
         
     }
 
-    .footer-block div {
-        border: 3px dashed grey;
-    }
+    /* .footer-block div {
+        
+    } */
 
     .footer-container {
         max-width: 1200px;
