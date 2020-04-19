@@ -14,8 +14,8 @@ export default {
         DELETE_FROM_WISHLIST({commit}, index) {
             commit('REMOVE_FROM_WISHLIST', index)
         },
-        ADD_TO_CART_FROM_WISHLIST({commit}, index) {
-            commit('SET_TO_CART_FROM_WISHLIST', index)
+        ADD_TO_CART_FROM_WISHLIST({commit}, good) {
+            commit('SET_TO_CART_FROM_WISHLIST', good)
         }
     },
     mutations: {

@@ -30,37 +30,48 @@
                 </router-link>
             </div>
             <div class="nav-user-block">
-                <ul @mouseover="dropdown" @mouseleave="dropup">
-                    <li>
-                        <router-link 
-                            to="/login" 
-                            class="button"
-                            >
-                            Войти
-                        </router-link>
-                    </li>
-                    <li>
-                        <router-link
-                            to="/registration" 
-                            class="button registration-button"
-                            >
-                            Зарегистрироваться
-                        </router-link>
-                    </li>
-                    <li>
+                <div @mouseover="dropdown" @mouseleave="dropup">
+                    <div 
+                    v-if="userMail"
+                    class="auth-block">
+                        {{userMail}}
+                    </div>
+                    <div 
+                    v-if="!userMail"
+                    class="reg-block"
+                    >
+                        <div>
+                            <router-link 
+                                to="/login" 
+                                class="button"
+                                >
+                                Войти
+                            </router-link>
+                        </div>
+                        <div>
+                            <router-link
+                                to="/registration" 
+                                class="button registration-button"
+                                >
+                                Зарегистрироваться
+                            </router-link>
+                        </div>
+                    </div>
+                    
+                    <div>
                         <ul class="profile-block" id="profile-block">
                             <li>
                                 <router-link to="/myOrders">Мои заказы</router-link>
                             </li>
                             <li>
-                                <a href="">Мои желания</a>
+                                <router-link to="/wishlist">Мои желания</router-link>
                             </li>
                             <li>
                                 <a href="" @click.prevent="logout">Выйти</a>
                             </li>
                         </ul>   
-                    </li>
-                </ul>               
+                    </div>
+                </div>               
             </div>           
         </div>
     </div> 
@@ -100,7 +111,10 @@ export default {
         ...mapGetters([
             'CART',
             'SEARCH_VALUE'
-        ])
+        ]),
+        userMail() {
+            return this.$store.getters.info.email
+        }
     }
 }
 </script>
@@ -140,7 +154,7 @@ export default {
     }
 
     .header-block {
-        background-color:rgb(81, 238, 18, 0.5);
+        background-color: #eeeeee
     }
 
     .header-container {
@@ -173,6 +187,13 @@ export default {
         width: 40px;
         height: 40px;
         background: url(../assets/login.svg);
+    }
+
+    .auth-block {
+        width: 120px;
+        height: 50px;
+        position: relative;
+        bottom: -5px;
     }
 
     .cart-text {

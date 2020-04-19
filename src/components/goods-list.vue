@@ -18,10 +18,15 @@
            /> 
         </ul>
         <div class="pagination-block">
-          <button @click="prevPage">
+          <button 
+          :disabled = "pageNumber===0"
+          @click="prevPage">
             Назад
           </button>
-          <button @click="nextPage">
+          <button 
+          @click="nextPage"
+          :disabled = "filteredGoods.length < this.size"
+          >
             Вперед
           </button>
         </div>
@@ -131,8 +136,13 @@ export default {
           const start = this.pageNumber * this.size,
           end = start + this.size;
           let paginated = sorted.slice(start, end)
-
+          
         return paginated
+    },
+    pageCount() {
+      let l = this.GOODS.length,
+          s = this.size
+      return Math.ceil(l/s);
     }
   }
 }
@@ -145,4 +155,5 @@ export default {
       flex-wrap: wrap;
       justify-content: space-around;
     }    
+
 </style> 

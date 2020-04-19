@@ -2,7 +2,7 @@
     <div class="cart-item">
         <img 
         class="cart-item-image"
-        :src="require(`../images/${cart_item_data.image}.jpg`)" 
+        :src="imageURL" 
         alt="">
         <div class="cart-item-info">
             <p>{{cart_item_data.name}}</p>
@@ -18,9 +18,15 @@
 </template>
 
 <script>
+import firebase from 'firebase/app'
 
 export default {
     name: "cart-item",
+    data() {
+        return {
+            imageURL: ''
+        }   
+    },
     props: {
         cart_item_data: {
             type: Object,
@@ -41,7 +47,10 @@ export default {
         }
     },
     mounted() {
-        this.$set(this.cart_item_data, 'quantity', 1)
+        this.$set(this.cart_item_data, 'quantity', 1),
+        firebase.storage().ref('images').child(`${this.cart_item_data.image}.jpg`).getDownloadURL().then(data =>{
+            this.imageURL = data}
+        )
     }
 }
 </script>

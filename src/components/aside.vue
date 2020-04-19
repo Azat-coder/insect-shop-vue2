@@ -341,7 +341,7 @@ export default {
 
 <style scoped>
 .container {
-        background-color:rgb(187, 233, 169);  
+        background-color:#eeeeee;  
         min-width: 300px;  
     } 
 

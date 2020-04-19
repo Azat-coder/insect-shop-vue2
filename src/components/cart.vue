@@ -30,8 +30,11 @@
                 <span>{{cartTotalPrice}}</span> 
                 руб.
             </p>
-            <button class="buy-button">
-                Купить
+            <button 
+                class="buy-button" 
+                @click="createOrder"
+            >
+            Купить
             </button>
             <button @click="clearCart">Очистить корзину</button>
         </div>
@@ -73,6 +76,10 @@
         },
         clearCart() {
             this.CLEAR_CART()
+        },
+        createOrder() {
+            const orderInfo = this.CART
+            this.$store.dispatch('setOrder', orderInfo)
         }
     },
     computed: {

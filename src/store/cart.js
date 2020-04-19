@@ -59,16 +59,16 @@ export default {
             if (state.cart.length) {
                 let isGoodInCart = false;
                 state.cart.map(function(item){
-                    if(item.index === state.wishlist[index]) {
+                    if(item.index === state.wishlist.item[index]) {
                         isGoodInCart = true
             //  Вызов (Товар уже в корзине!)
                     }
                 })
                 if (!isGoodInCart) {
-                    state.cart.push(state.wishlist[index])
+                    state.cart.push(state.wishlist.item[index])
                 }
             }else {
-                state.cart.push(state.wishlist[index])
+                state.cart.push(state.wishlist.item[index])
             }
         }           
     }

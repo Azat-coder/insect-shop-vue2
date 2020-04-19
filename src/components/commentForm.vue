@@ -89,6 +89,8 @@
 
 <script>
     import firebase from 'firebase/app'
+    import { mapGetters } from 'vuex'
+
     export default {
         name: "CommentForm",
         data() {
@@ -111,9 +113,11 @@
                 let id = Date.now()
                 firebase.database().ref('comments/' + id).set({
                     id,
+                    uid: this.uid,
                     userName: this.userName,
                     commentText: this.commentText,
-                    attachedFiles: this.imageData.name
+                    attachedFiles: this.imageData.name,
+                    rating: this.rating
                 })
                 this.picture = null
 
@@ -123,7 +127,13 @@
                 //     rating: this.ratingValue
                 // })
             }
-        }
+        },
+        computed: {
+        ...mapGetters([
+            'uid'
+        ])
+       
+    }
     }
 </script>
 
