@@ -9,22 +9,22 @@
           Имя
           </button>
           <button 
-              class="button" 
+              class="button button-category" 
               @click="sortListByCategory"
           >
           Категория
           </button>
           <button 
-              class="button" 
+              class="button button-price-up" 
               @click="sortListByPrice"
           >
-          Цена ↑
+          Цена 
           </button>       
           <button 
-              class="button" 
+              class="button button-price-down" 
               @click="sortListByPriceReversed"
           >
-          Цена ↓
+          Цена 
           </button>
           <button 
               class="button" 
@@ -176,49 +176,98 @@ export default {
 </script>
 
 <style scoped>
-    ul {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-    }  
+.goods-list {
+  display: flex;
+  flex-direction: column;
+}
 
-    .sort-block {
-      display: flex;
-      justify-content: space-around;
-      width: 600px;
-      height: 50px;
-      align-items: center;
-    }
+ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}  
 
-    .pagination-block {
-      position: relative;
-      left: 50px;
-      bottom: 23px;
-      display: flex;
-    }  
+.sort-block {
+  display: flex;
+  justify-content: space-around;
+  width: 600px;
+  height: 50px;
+  align-items: center;
+  align-self: center;
+}
 
-    .button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 70px;
-      height: 25px;
-      color: #ffffff;
-      background-color: #739e0c;
-      text-decoration: none;
-      font-weight: 700;
-      text-transform: uppercase;
-      border: none;
-      border-radius: 3px;	
-      font-size: 12px;
-    }
-    .button:first-child {
-      margin-right: 10px;
-    }
+.pagination-block {
+  position: relative;
+  left: 50px;
+  bottom: 23px;
+  display: flex;
+}  
 
-    .button:disabled {
-      background-color: #d4d4d4;
-    }
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 25px;
+  color: #ffffff;
+  background-color: #739e0c;
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 3px;	
+  font-size: 12px;
+}
+
+.button:hover,
+.button:focus {
+  background-color: #496704;
+  cursor: pointer;
+}
+
+.button:first-child {
+  margin-right: 10px;
+}
+
+.button:disabled {
+  background-color: #d4d4d4;
+}
+
+.button-price-up {
+  position: relative;
+  padding-right: 20px;
+}
+
+.button-price-up::before {
+  position: absolute;
+  top: 5px;
+  left: 50px;
+  overflow: hidden;
+  content: '';
+  width: 16px;
+  height: 16px;
+  background: url(../assets/up-arrow_icon.svg);
+}
+
+.button-price-down {
+  position: relative;
+  padding-right: 20px;
+}
+
+.button-price-down::before {
+  position: absolute;
+  top: 5px;
+  left: 50px;
+  overflow: hidden;
+  content: '';
+  width: 16px;
+  height: 16px;
+  background: url(../assets/down-arrow_icon.svg);
+}
+
+.button-category {
+  width: 90px;
+}
 
 </style> 
