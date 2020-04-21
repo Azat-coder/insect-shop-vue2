@@ -144,7 +144,7 @@
             },
             onUpload() {
                 let id = Date.now()
-                firebase.database().ref('comments/' + id).set({
+                firebase.database().ref(`goods/${this.goodIndex-1}/comments/` + id).set({
                     id,
                     uid: this.uid,
                     userName: this.userName,
@@ -165,11 +165,13 @@
             }
         },
         computed: {
-        ...mapGetters([
-            'uid'
-        ])
-       
-    }
+            ...mapGetters([
+                'uid'
+            ]),
+            goodIndex() {
+                return this.$route.params.index
+            }
+        }
     }
 </script>
 

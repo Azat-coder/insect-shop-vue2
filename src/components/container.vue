@@ -19,7 +19,7 @@ export default {
     watch: {
         imageUploaded() {
             let uploaded = this.$store.getters.uploaded;
-            this.getPosts()
+            this.getComments()
             this.$store.commit('reloaded')
             return uploaded
         }
@@ -32,8 +32,8 @@ export default {
         }
     },
     methods: {
-        async getPosts() {
-            firebase.database().ref('comments/').once('value').then(comments => {
+        async getComments() {
+            firebase.database().ref(`goods/${this.goodIndex-1}/comments`).once('value').then(comments => {
                 this.comments = comments.val()
             })
         }
@@ -41,12 +41,17 @@ export default {
     mounted() {
         let commentRef = firebase.database().ref('comments/');
         commentRef.on('value', () => {
-            this.getPosts()
+            this.getComments()
         })
     },
     components: {
         comment
-    }
+    },
+    computed: {
+            goodIndex() {
+                return this.$route.params.index
+            }
+        }
 }
 </script>
 
