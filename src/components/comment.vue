@@ -1,14 +1,18 @@
 <template>
     <div class="comment">
-        <img 
+        <div class="comment-image-container">
+            <img 
             :src="imageURL"
         >
-        <p class="comment-name">
-            Имя пользователя: {{comment.userName}}
-        </p>
-        <p class="comment-text">
-            Текст комментария: {{comment.commentText}}
-        </p>
+        </div>
+        <div class="comment-info">
+            <p class="comment-name">
+                <span>Имя пользователя:</span>  {{comment.userName}}
+            </p>
+            <p class="comment-text">
+                <span>Текст комментария:</span>  {{comment.commentText}}
+            </p>
+        </div>
     </div>
 </template>
 
@@ -33,6 +37,32 @@ export default {
 
 <style scoped>
 img {
-    width: 100px;
+    width: 60px;
 }
+
+.comment {
+    display: flex; 
+
+}
+
+.comment-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-name {
+    margin: 0;
+    margin-left: 20px;
+}
+
+.comment-text {
+    margin: 0;
+    margin-left: 20px;
+}
+
+.comment-name span,
+.comment-text span {
+    font-weight: 500;
+}
+
 </style>

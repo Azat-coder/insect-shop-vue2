@@ -11,6 +11,7 @@ export default {
         },
         clearInfo(state) {
             state.info = {}
+            state.orders = []
         },
         setUID(state, uid) {
             state.uid = uid
@@ -19,7 +20,7 @@ export default {
     actions: {
         async fetchInfo({dispatch, commit}) {
             try {
-                const uid = await dispatch('getUid')
+                const uid = await dispatch('getUid');
                 const info = (await firebase.database().ref(`/users/${uid}/info`).once('value')).val()
                 commit('setInfo', info)
                 commit('setUID', uid)

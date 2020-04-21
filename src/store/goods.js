@@ -1,4 +1,3 @@
-// import Axios from "axios"
 import firebase from 'firebase/app'
 import 'firebase/database'
 

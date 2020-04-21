@@ -1,54 +1,57 @@
 <template>
-    <div class="photoShow">
-        <div class="little-photo-block">
-            <img 
-                class="good-page-photo-little"
-                :src="imageURL"
-                alt="Фото товара 1"
-                @click="photoClick1"
-            >
-            <img 
-                class="good-page-photo-little"
-                :src="hoverImageURL"
-                alt="Фото товара 2"
-                @click="photoClick2"
-            >
-            <img 
-                class="good-page-photo-little"
-                :src="image3URL"
-                alt="Фото товара 3"
-                @click="photoClick3"
-            >
-            <img 
-                class="good-page-photo-little"
-                :src="image4URL"
-                alt="Фото товара 4"
-                @click="photoClick4"
-            >
+    <div class="photoshow-container">
+        <div class="photoShow">
+            <div class="little-photo-block">
+                <img 
+                    class="good-page-photo-little"
+                    :src="imageURL"
+                    alt="Фото товара 1"
+                    @click="photoClick1"
+                >
+                <img 
+                    class="good-page-photo-little"
+                    :src="hoverImageURL"
+                    alt="Фото товара 2"
+                    @click="photoClick2"
+                >
+                <img 
+                    class="good-page-photo-little"
+                    :src="image3URL"
+                    alt="Фото товара 3"
+                    @click="photoClick3"
+                >
+                <img 
+                    class="good-page-photo-little"
+                    :src="image4URL"
+                    alt="Фото товара 4"
+                    @click="photoClick4"
+                >
+            </div>
+            <div class="photo-block">
+                <img 
+                    class="good-page-photo-main good-page-photo-main-1"
+                    :src="imageURL"
+                    alt="Фото товара 1"
+                >
+                <img 
+                    class="good-page-photo-main good-page-photo-main-2"
+                    :src="hoverImageURL"
+                    alt="Фото товара 2"
+                >
+                <img 
+                    class="good-page-photo-main good-page-photo-main-3"
+                    :src="image3URL"
+                    alt="Фото товара 3"
+                >
+                <img 
+                    class="good-page-photo-main good-page-photo-main-4"
+                    :src="image4URL"
+                    alt="Фото товара 4"
+                >
+            </div> 
         </div>
-        <div class="photo-block">
-            <img 
-                class="good-page-photo-main good-page-photo-main-1"
-                :src="imageURL"
-                alt="Фото товара 1"
-            >
-            <img 
-                class="good-page-photo-main good-page-photo-main-2"
-                :src="hoverImageURL"
-                alt="Фото товара 2"
-            >
-            <img 
-                class="good-page-photo-main good-page-photo-main-3"
-                :src="image3URL"
-                alt="Фото товара 3"
-            >
-            <img 
-                class="good-page-photo-main good-page-photo-main-4"
-                :src="image4URL"
-                alt="Фото товара 4"
-            >
-        </div> 
     </div>
+    
 </template>
 
 <script>
@@ -135,8 +138,15 @@ export default {
 </script>
 
 <style scoped>
+.photoshow-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .photoShow {
     display: flex;
+    margin-top: 20px;
 }
 
 .little-photo-block {
@@ -150,6 +160,8 @@ export default {
 
 .good-page-photo-little {
     width: 120px;
+    border-radius: 5px;
+    border: 2px solid #739e0c;
 }
 
 .photo-block {
@@ -160,6 +172,8 @@ export default {
 .good-page-photo-main {
     position: absolute;
     width: 900px; 
+    border-radius: 15px;
+    border: 2px solid #739e0c;
 }
 .good-page-photo-main-1 {
     z-index: 2;

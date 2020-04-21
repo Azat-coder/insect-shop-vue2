@@ -1,14 +1,14 @@
 <template>
     <div class="cart">
         <div class="cart-top-block">
-            <h1>Корзина</h1>
+            <h1 class="cart-top-block-header">Корзина товаров</h1>
             <router-link to="/">
                 <div class="back-to-goods-btn button">
                 Вернуться в каталог
                 </div>
             </router-link>
         </div>
-        <h2
+        <h2 class="cart-nogood-text"
             v-if="CART.length <=0"
             >Пока что в корзине нет ни одного товара
         </h2>
@@ -24,19 +24,21 @@
 
         <div class="cart-bottom-block"
             v-if="CART.length">
-            <p>В корзине 
+            <p class="cart-bottom-block-info">В корзине 
                 <span>{{cartTotalCount}}</span>  
                 товаров на сумму 
                 <span>{{cartTotalPrice}}</span> 
                 руб.
             </p>
             <button 
-                class="buy-button" 
+                class="button buy-button" 
                 @click="createOrder"
             >
             Купить
             </button>
-            <button @click="clearCart">Очистить корзину</button>
+            <button
+                class="button" 
+                @click="clearCart">Очистить корзину</button>
         </div>
     </div>
 </template>
@@ -121,14 +123,56 @@
     position: relative;
     top: -50px; 
     right: -700px;  
-    border: chartreuse 1px solid;
     width: 150px;
     height: 50px;
     text-align: center;
+    text-decoration: none;
+}
+
+.button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 150px;
+	height: 50px;
+	color: #ffffff;
+	background-color: #739e0c;
+	text-decoration: none;
+	font-weight: 700;
+	text-transform: uppercase;
+	border: none;
+	border-radius: 3px;	
+    font-size: 14px;
+}
+
+.button:hover,
+.button:focus {
+	background-color: #496704;
+    cursor: pointer;
+}
+
+.buy-button {
+    margin-right: 20px;
 }
 
 .cart-top-block {
     height: 120px;
+}
+
+.cart-top-block a {
+    text-decoration: none;
+}
+
+.cart-top-block-header {
+    color: #739e0c;
+    padding-left: 50px;
+    padding-top: 20px;
+
+}
+
+.cart-nogood-text {
+    color: #739e0c;
+    padding-left: 20px;
 }
 
 .cart-bottom-block {
@@ -136,10 +180,16 @@
     padding: 20px;
     font-weight: bold;
     font-size: 24px;
+    color: #739e0c;
 }
 
 .cart-bottom-block span {
-    color: green;
+    color: #496704;
+}
+
+.cart-bottom-block-info {
+    position: relative;
+    top: -20px;
 }
 
 .buy-button  {

@@ -25,7 +25,7 @@ export default {
     }
   },
   async mounted() {
-    if(!Object.keys(this.$store.getters.info).length) {
+    if(Object.keys(this.$store.state.info).length) {
       await this.$store.dispatch('fetchInfo')
     }
   },
@@ -40,15 +40,12 @@ export default {
 <style scoped>
     .main-container {
         display: flex;
-        /* flex-wrap: wrap; */
         flex-grow: 1; 
         max-width: 1200px;
         margin: 0 auto;   
     }
 
     .layout {
-      /* max-width: 1200px; */
-      /* margin: 0 auto; */
       height: 100vh; 
       display: flex;
       flex-direction: column;

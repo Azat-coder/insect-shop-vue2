@@ -32,20 +32,20 @@
             <div class="nav-user-block">
                 <div @mouseover="dropdown" @mouseleave="dropup">
                     <div 
-                    v-if="userMail"
-                    class="auth-block">
+                        v-if="userMail"
+                        class="auth-block">
                         {{userMail}}
                     </div>
                     <div 
-                    v-if="!userMail"
-                    class="reg-block"
+                        v-if="!userMail"
+                        class="reg-block"
                     >
                         <div>
                             <router-link 
                                 to="/login" 
                                 class="button"
-                                >
-                                Войти
+                            >
+                            Войти
                             </router-link>
                         </div>
                         <div>
@@ -266,11 +266,16 @@ export default {
         display: flex;
         flex-direction: column;
         display: none;
+        background-color: #739e0c;
+        z-index: 10;
+        padding: 10px;
+        width: 150px;
     }
 
     .profile-block a {
         text-decoration: none;
         font-weight: bold;
+        color: #ffffff;
     }   
 
     ul {

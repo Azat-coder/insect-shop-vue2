@@ -9,8 +9,18 @@
             <p>{{wishlist_item_data.price}} руб.</p>
         </div>
         <div class="wishlist-item-buttons">
-            <button @click="addToCartFromWishlist">Добавить в корзину</button>
-            <button @click="deleteFromWishlist">Удалить из списка желаний</button>
+            <button
+                class="button button-add_to_cart" 
+                @click="addToCartFromWishlist"
+            >
+            Добавить в корзину
+            </button>
+            <button 
+                class="button button-delete"
+                @click="deleteFromWishlist"
+            >
+            Удалить 
+            </button>
         </div>
        
     </div>
@@ -45,25 +55,59 @@ export default {
     flex-wrap: nowrap;
     justify-content: space-around;
     align-items: center;
+    border: 2px solid #739e0c;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    margin-left: 20px;
 }
 
 .wishlist-item-image {
     width: 100px;
     margin-right: 40px;
+    border-radius: 5px;
 }
 
 .wishlist-item-info {
     width: 400px;
+    color: #739e0c;
+    font-weight: bold;
+    font-size: 18px;
 }
 
 .wishlist-item-buttons {
     width: 250px;
     display: flex;
     justify-content: space-between;
+} 
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 25px;
+  color: #ffffff;
+  background-color: #739e0c;
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 3px;	
+  font-size: 12px;
 }
 
-.wishlist-item-buttons button {
-    width: 100px;
-    font-size: 12px;
+.button:hover,
+.button:focus {
+  background-color: #496704;
+  cursor: pointer;
+}
+
+.button-delete {
+    width: 70px;
+    margin-right: 30px;
+}
+
+.button-add_to_cart {
+    margin-right: 10px;
 }
 </style>

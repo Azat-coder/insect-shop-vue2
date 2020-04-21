@@ -138,7 +138,7 @@ export default {
         width: 400px;
         height: 50px;
         color: #ffffff;
-        background-color: #fb565a;
+        background-color: #739e0c;
         text-decoration: none;
         font-weight: 500;
         text-transform: uppercase;
@@ -151,11 +151,11 @@ export default {
 
     .button:hover,
     .button:focus {
-        background-color: #e74246;
+        background-color: #496704;
     }
         
     .button:active {
-        background-color: #d7373b;
+        background-color: #316129;
         color: rgba(255, 255, 255, 0.3);
         box-shadow: 0 3px rgba(0, 0, 0, 0.1) inset;
     }
@@ -175,7 +175,7 @@ export default {
 
     .link-block a:hover,
     .link-block a:focus {
-        color: #e74246;
+        color: #496704;
     }
 
     .forgot-link {
@@ -187,9 +187,9 @@ export default {
     }
 
     .link-block .login-link {
-        border-bottom: 2px solid #fb565a;
+        border-bottom: 2px solid #739e0c;
         margin-bottom: -2px;
-        color: #fb565a;
+        color: #739e0c;
     }
 
     input[type="text"].invalid {
