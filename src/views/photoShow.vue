@@ -26,6 +26,14 @@
                     alt="Фото товара 4"
                     @click="photoClick4"
                 >
+                <router-link 
+                    class="back-to-the-future-link"
+                    :to="goodPageLink">
+                    <button 
+                        class="button"
+                        >Назад
+                    </button>
+                </router-link>
             </div>
             <div class="photo-block">
                 <img 
@@ -79,7 +87,7 @@ export default {
                 elem1.style.zIndex = 100;
         },
         photoClick2() {
-             let elem1 = document.querySelector(".good-page-photo-main-1")
+            let elem1 = document.querySelector(".good-page-photo-main-1")
             let elem2 = document.querySelector(".good-page-photo-main-2")
             let elem3 = document.querySelector(".good-page-photo-main-3")
             let elem4 = document.querySelector(".good-page-photo-main-4")
@@ -89,7 +97,7 @@ export default {
                 elem2.style.zIndex = 100;
         },
         photoClick3() {
-             let elem1 = document.querySelector(".good-page-photo-main-1")
+            let elem1 = document.querySelector(".good-page-photo-main-1")
             let elem2 = document.querySelector(".good-page-photo-main-2")
             let elem3 = document.querySelector(".good-page-photo-main-3")
             let elem4 = document.querySelector(".good-page-photo-main-4")
@@ -107,7 +115,7 @@ export default {
                 elem3.style.zIndex = 1;
                 elem1.style.zIndex = 1;
                 elem4.style.zIndex = 100;
-        }   
+        } 
     },
     mounted() {
         firebase.storage().ref('images').child(`${this.GOODS[this.goodIndex-1].image}.jpg`).getDownloadURL().then(data =>{
@@ -132,6 +140,9 @@ export default {
         },
         good() {
             return this.GOODS[this.goodIndex-1]
+        },
+        goodPageLink() {
+            return `/goodPage/${this.goodIndex}`
         }
     }
 }
@@ -177,5 +188,31 @@ export default {
 }
 .good-page-photo-main-1 {
     z-index: 2;
+}
+
+.button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 120px;
+	height: 50px;
+	color: #ffffff;
+	background-color: #739e0c;
+	text-decoration: none;
+	font-weight: 700;
+	text-transform: uppercase;
+	border: none;
+	border-radius: 3px;	
+    font-size: 14px;
+}
+
+.button:hover,
+.button:focus {
+	background-color: #496704;
+    cursor: pointer;
+}
+
+.back-to-the-future-link {
+    text-decoration: none;
 }
 </style>

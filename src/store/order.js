@@ -16,7 +16,6 @@ export default {
                 const uid = await dispatch('getUid')
                 await firebase.database().ref(`/users/${uid}/orders`).push({
                     orderInfo: orderInfo 
-                     
                 })
               } catch (e) {
                   commit('setError', e)

@@ -22,7 +22,8 @@
             >
             </textarea> 
             <div class="comment-text-bottom-block">
-                <div class="goods-rating">
+                <div 
+                class="goods-rating">
                     <p>Оценка *</p>
                     <div class="rating_block">
                         <input 
@@ -118,9 +119,10 @@
         </form>
     <div
         class="comment-form-registered"
-        v-else
+        v-if="!this.userMail"
         >
-        Отзывы о товарах могут оставлять только зарегистрированные пользователи</div>
+        Отзывы о товарах могут оставлять только зарегистрированные пользователи
+    </div>
 </div>
     
 </template>
@@ -156,6 +158,7 @@
                     commentText: this.commentText,
                     attachedFiles: this.imageData.name,
                     rating: this.rating
+                    
                 })
                 this.picture = null
                 this.userName = ''
@@ -323,5 +326,6 @@
 
 .comment-form-registered {
     font-style: italic;
+    margin-top: 20px;
 }
 </style>

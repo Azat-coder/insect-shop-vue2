@@ -27,6 +27,7 @@ export default {
   async mounted() {
     if(Object.keys(this.$store.state.info).length) {
       await this.$store.dispatch('fetchInfo')
+      console.log('fetchInfo')
     }
   },
   components: {

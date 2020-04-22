@@ -6,7 +6,10 @@
             :comment="comment"
             :key="comment.id"
         >
-        </comment>       
+        </comment>  
+        <div v-if="this.comments.length == 0" class="comment-no-comment">
+            Пока нет ни одного отзыва
+        </div>     
     </div>   
 </template>
 
@@ -55,4 +58,8 @@ export default {
 }
 </script>
 
-
+<style scoped>
+.comment-no-comment {
+    font-style: italic;
+}
+</style>

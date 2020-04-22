@@ -5,6 +5,7 @@ export default {
         async login({dispatch, commit}, {email, password}) {
             try {
               await firebase.auth().signInWithEmailAndPassword(email, password)
+              console.log('login')
             } catch (e) {
                 console.log (dispatch)
                 commit('setError', e)

@@ -8,6 +8,7 @@ export default {
     mutations: {
         setInfo(state, info) {
             state.info = info
+            console.log('setInfo', info)
         },
         clearInfo(state) {
             state.info = {}
