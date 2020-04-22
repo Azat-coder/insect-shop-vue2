@@ -118,16 +118,16 @@ export default {
         } 
     },
     mounted() {
-        firebase.storage().ref('images').child(`${this.GOODS[this.goodIndex-1].image}.jpg`).getDownloadURL().then(data =>{
+        firebase.storage().ref('images').child(`${this.GOODS[this.goodIndex-1].image_5}.jpg`).getDownloadURL().then(data =>{
             this.imageURL = data}
         ),
-        firebase.storage().ref('images').child(`${this.GOODS[this.goodIndex-1].hoverImage}.jpg`).getDownloadURL().then(data =>{
+        firebase.storage().ref('images').child(`${this.GOODS[this.goodIndex-1].image_6}.jpg`).getDownloadURL().then(data =>{
             this.hoverImageURL = data}
         ),
-        firebase.storage().ref('images').child(`${this.GOODS[this.goodIndex-1].image_3}.jpg`).getDownloadURL().then(data =>{
+        firebase.storage().ref('images').child(`${this.GOODS[this.goodIndex-1].image_7}.jpg`).getDownloadURL().then(data =>{
             this.image3URL = data}
         ),
-        firebase.storage().ref('images').child(`${this.GOODS[this.goodIndex-1].image_4}.jpg`).getDownloadURL().then(data =>{
+        firebase.storage().ref('images').child(`${this.GOODS[this.goodIndex-1].image_8}.jpg`).getDownloadURL().then(data =>{
             this.image4URL = data}
         )
     },

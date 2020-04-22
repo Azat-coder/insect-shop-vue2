@@ -124,7 +124,7 @@ export default {
         // }
     },
     mounted() {
-        firebase.storage().ref('images').child(`${this.GOODS[this.goodIndex-1].image}.jpg`).getDownloadURL().then(data =>{
+        firebase.storage().ref('images').child(`${this.GOODS[this.goodIndex-1].image_5}.jpg`).getDownloadURL().then(data =>{
             this.imageURL = data}
         ),
         firebase.storage().ref('images').child(`${this.GOODS[this.goodIndex-1].hoverImage}.jpg`).getDownloadURL().then(data =>{
