@@ -1,123 +1,128 @@
 <template>
-    <form 
-        class="comment-form"
-        @submit.prevent="onUpload">
-        <h2>Написать отзыв</h2>
-        <label> Имя *
-            <input 
-                class="comment-form-name"
-                type="text"
-                v-model="userName"
+    <div>
+        <form v-if="this.userMail"
+            class="comment-form"
+            @submit.prevent="onUpload">
+            <h2>Написать отзыв</h2>
+            <label> Имя * 
+                <input 
+                    class="comment-form-name"
+                    type="text"
+                    v-model="userMail"
+                >
+            </label>
+            <label for="commentText">Ваш отзыв: *</label>
+            <textarea 
+                class="comment-form-text"
+                name="comment" 
+                id="commentText" 
+                cols="30" 
+                rows="6"
+                v-model="commentText"
             >
-        </label>
-        <label for="commentText">Ваш отзыв: *</label>
-        <textarea 
-            class="comment-form-text"
-            name="comment" 
-            id="commentText" 
-            cols="30" 
-            rows="6"
-            v-model="commentText"
-        >
-        </textarea> 
-        <div class="comment-text-bottom-block">
-            <div class="goods-rating">
-                <p>Оценка *</p>
-                <div class="rating_block">
+            </textarea> 
+            <div class="comment-text-bottom-block">
+                <div class="goods-rating">
+                    <p>Оценка *</p>
+                    <div class="rating_block">
+                        <input 
+                            name="rating" 
+                            value="5" 
+                            id="rating_5" 
+                            type="radio"
+                            v-model.number="rating" 
+                        />
+                        <label 
+                            for="rating_5" 
+                            class="label_rating">
+                        </label>
+                        
+                        <input 
+                            name="rating" 
+                            value="4" 
+                            id="rating_4" 
+                            type="radio"
+                            v-model.number="rating" 
+                        />
+                        <label 
+                            for="rating_4" 
+                            class="label_rating">
+                        </label>
+                        
+                        <input 
+                            name="rating" 
+                            value="3" 
+                            id="rating_3" 
+                            type="radio"
+                            v-model.number="rating" 
+                        />
+                        <label 
+                            for="rating_3" 
+                            class="label_rating">
+                        </label>
+                        
+                        <input 
+                            name="rating" 
+                            value="2" 
+                            id="rating_2" 
+                            type="radio"
+                            v-model.number="rating" 
+                        />
+                        <label 
+                            for="rating_2" 
+                            class="label_rating">
+                        </label>
+                        
+                        <input 
+                            name="rating" 
+                            value="1" 
+                            id="rating_1" 
+                            type="radio"
+                            v-model.number="rating" 
+                        />
+                        <label 
+                            for="rating_1" 
+                            class="label_rating">
+                        </label>
+                    </div>
+                </div>
+                <div class="input__wrapper">
                     <input 
-                        name="rating" 
-                        value="5" 
-                        id="rating_5" 
-                        type="radio"
-                        v-model.number="rating" 
-                    />
+                        name="file" 
+                        type="file"
+                        ref="file" 
+                        id="input__file" 
+                        accept="image/png"
+                        class="input input__file"
+                        @change="uploadImage" 
+                        multiple>
                     <label 
-                        for="rating_5" 
-                        class="label_rating">
-                    </label>
-                    
-                    <input 
-                        name="rating" 
-                        value="4" 
-                        id="rating_4" 
-                        type="radio"
-                        v-model.number="rating" 
-                    />
-                    <label 
-                        for="rating_4" 
-                        class="label_rating">
-                    </label>
-                    
-                    <input 
-                        name="rating" 
-                        value="3" 
-                        id="rating_3" 
-                        type="radio"
-                        v-model.number="rating" 
-                    />
-                    <label 
-                        for="rating_3" 
-                        class="label_rating">
-                    </label>
-                    
-                    <input 
-                        name="rating" 
-                        value="2" 
-                        id="rating_2" 
-                        type="radio"
-                        v-model.number="rating" 
-                    />
-                    <label 
-                        for="rating_2" 
-                        class="label_rating">
-                    </label>
-                    
-                    <input 
-                        name="rating" 
-                        value="1" 
-                        id="rating_1" 
-                        type="radio"
-                        v-model.number="rating" 
-                    />
-                    <label 
-                        for="rating_1" 
-                        class="label_rating">
+                        for="input__file" 
+                        class="input__file-button">
+                        <span class="input__file-icon-wrapper">
+                            <img 
+                                class="input__file-icon" 
+                                src="../assets/logo.svg" 
+                                alt="Выбрать файл" 
+                                width="25">
+                        </span>
+                        <span class="input__file-button-text">Выберите файл</span>
                     </label>
                 </div>
-            </div>
-            <div class="input__wrapper">
-                <input 
-                    name="file" 
-                    type="file"
-                    ref="file" 
-                    id="input__file" 
-                    accept="image/png"
-                    class="input input__file"
-                    @change="uploadImage" 
-                    multiple>
-                <label 
-                    for="input__file" 
-                    class="input__file-button">
-                    <span class="input__file-icon-wrapper">
-                        <img 
-                            class="input__file-icon" 
-                            src="../assets/logo.svg" 
-                            alt="Выбрать файл" 
-                            width="25">
-                    </span>
-                    <span class="input__file-button-text">Выберите файл</span>
-                </label>
-            </div>
-            <button
-                class="button comment-form-button" 
-                type="submit">
-                Отправить
-            </button>
-        </div>
-        
-        
-        
-    </form>
+                <button
+                    class="button comment-form-button" 
+                    type="submit">
+                    Отправить
+                </button>
+            </div>      
+        </form>
+    <div
+        class="comment-form-registered"
+        v-else
+        >
+        Отзывы о товарах могут оставлять только зарегистрированные пользователи</div>
+</div>
+    
 </template>
 
 <script>
@@ -133,7 +138,7 @@
                 uploadValue: 0,
                 userName: '',
                 commentText: '',
-                rating: 0
+                rating: 0,
             }
         },
         methods: {
@@ -147,7 +152,7 @@
                 firebase.database().ref(`goods/${this.goodIndex-1}/comments/` + id).set({
                     id,
                     uid: this.uid,
-                    userName: this.userName,
+                    userName: this.userMail,
                     commentText: this.commentText,
                     attachedFiles: this.imageData.name,
                     rating: this.rating
@@ -170,7 +175,10 @@
             ]),
             goodIndex() {
                 return this.$route.params.index
-            }
+            },
+            userMail() {
+            return this.$store.getters.info.email
+        }
         }
     }
 </script>
@@ -183,11 +191,13 @@
 
 .comment-form-name {
     width: 100%;
+    font: inherit;
 }
 
 .comment-form-text {
     width: 100%;
     margin-bottom: 20px;
+    font: inherit;
 }
 
 .comment-text-bottom-block {
@@ -309,5 +319,9 @@
 
 .comment-form-button {
     margin-right: 20px;
+}
+
+.comment-form-registered {
+    font-style: italic;
 }
 </style>

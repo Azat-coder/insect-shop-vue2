@@ -80,7 +80,7 @@ export default {
 
   a {
     text-decoration: none;
-    color: #739e0c;
+    color: #283136;
   }
 
   img {

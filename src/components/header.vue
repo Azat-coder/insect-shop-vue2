@@ -26,7 +26,7 @@
             </div>      
             <div class="wishlist">
                 <router-link to="/wishlist" class="wishlist-link">
-                    <p class="wishlist-text">Мои <br/>желания</p>
+                    <p class="wishlist-text">Избранное</p>
                 </router-link>
             </div>
             <div class="nav-user-block">
@@ -237,7 +237,7 @@ export default {
 
     .wishlist-text::before {
         position: absolute;
-        top: 20px;
+        top: 5px;
         left: 5px;
         overflow: hidden;
         content: '';
@@ -287,6 +287,8 @@ export default {
     .auth-block {
         color: #ffffff;
         font-weight: bold;
+        position: relative;
+        top: 12px;
     }
 
     .reg-block a {

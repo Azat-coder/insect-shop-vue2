@@ -1,5 +1,6 @@
 <template>
-    <div class="goods-list">
+<div class="container">
+  <div class="goods-list">
         <h1 class="visually-hidden">Список товаров</h1>
         <div class="sort-block">
           <button 
@@ -42,22 +43,26 @@
                @addToWishlist="addToWishlist"
            /> 
         </ul>
-        <div class="pagination-block">
-          <button
-            class="button" 
-            :disabled = "pageNumber===0"
-            @click="prevPage">
-            Назад
-          </button>
-          <button
-            class="button" 
-            @click="nextPage"
-            :disabled = "filteredGoods.length < this.size"
-          >
-            Вперед
-          </button>
+        <div 
+          class="goods-list-not-found"
+          v-if="this.filteredGoods == 0">К сожалению, по вашему запросу ничего не найдено</div>
+          <div class="pagination-block">
+            <button
+              class="button" 
+              :disabled = "pageNumber===0"
+              @click="prevPage">
+              Назад
+            </button>
+            <button
+              class="button" 
+              @click="nextPage"
+              :disabled = "filteredGoods.length < this.size"
+            >
+              Вперед
+            </button>
         </div>
     </div>
+</div>
 </template>
 
 <script>
@@ -179,6 +184,7 @@ export default {
 .goods-list {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 ul {
@@ -268,6 +274,18 @@ ul {
 
 .button-category {
   width: 90px;
+}
+
+.goods-list-not-found {
+  z-index: 100;
+  font-size: 24px;
+  width: 700px;
+  height: 200px;
+  position: absolute;
+  background-color: #fff;
+  left: 50px;
+  bottom: -200px;
+  padding-top: 100px;
 }
 
 </style> 

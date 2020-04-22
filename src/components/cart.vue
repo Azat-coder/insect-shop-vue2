@@ -164,14 +164,12 @@
 }
 
 .cart-top-block-header {
-    color: #739e0c;
     padding-left: 50px;
     padding-top: 20px;
 
 }
 
 .cart-nogood-text {
-    color: #739e0c;
     padding-left: 20px;
 }
 
@@ -180,11 +178,10 @@
     padding: 20px;
     font-weight: bold;
     font-size: 24px;
-    color: #739e0c;
 }
 
 .cart-bottom-block span {
-    color: #496704;
+    color: #739e0c;
 }
 
 .cart-bottom-block-info {

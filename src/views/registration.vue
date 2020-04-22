@@ -27,7 +27,7 @@
                 <div class="input-field">
                     <input 
                     class="registration-password" 
-                    type="text" 
+                    type="password" 
                     placeholder="Пароль"
                     v-model.trim="password"
                     :class="{invalid: ($v.password.$dirty && !$v.password.required) || ($v.email.$dirty && !$v.password.minLength)}"

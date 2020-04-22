@@ -4,10 +4,14 @@
         class="cart-item-image"
         :src="imageURL" 
         alt="">
-        <div class="cart-item-info">
-            <p class="cart-item-info-name">{{cart_item_data.name}}</p>
-            <p class="cart-item-info-price">{{cart_item_data.price}} руб.</p>
-        </div>
+        <router-link 
+            class="cart-item-info-link"
+            :to="goodPageLink">
+            <div class="cart-item-info">
+                <p class="cart-item-info-name">{{cart_item_data.name}}</p>
+                <p class="cart-item-info-price">{{cart_item_data.price}} руб.</p>
+            </div>
+        </router-link>
         <div class="cart-item-quantity">
             <span @click="decrementItem">-</span>
             <p>{{cart_item_data.quantity}} шт</p>
@@ -53,6 +57,11 @@ export default {
         firebase.storage().ref('images').child(`${this.cart_item_data.image}.jpg`).getDownloadURL().then(data =>{
             this.imageURL = data}
         )
+    },
+    computed: {
+        goodPageLink() {
+            return `/goodPage/${this.cart_item_data.index}`
+        }
     }
 }
 </script>
@@ -77,15 +86,18 @@ export default {
 
 .cart-item-info {
     width: 400px;
-    color: #739e0c;
     font-weight: bold;
     font-size: 18px;
+}
+
+.cart-item-info-link {
+    color: #283136;
+    text-decoration: none;
 }
 
 .cart-item-quantity {
     display: flex;
     align-items: center;
-    color: #739e0c;
     font-weight: bold;
     width: 110px;
 }

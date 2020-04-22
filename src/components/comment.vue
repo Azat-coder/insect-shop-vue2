@@ -12,6 +12,9 @@
             <p class="comment-text">
                 <span>Текст комментария:</span>  {{comment.commentText}}
             </p>
+            <p class="comment-rating">
+                <span>Оценка:</span>  {{comment.rating}}
+            </p>
         </div>
     </div>
 </template>
@@ -60,8 +63,14 @@ img {
     margin-left: 20px;
 }
 
+.comment-rating {
+     margin: 0;
+     margin-left: 20px;
+}
+
 .comment-name span,
-.comment-text span {
+.comment-text span,
+.comment-rating {
     font-weight: 500;
 }
 

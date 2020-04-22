@@ -39,7 +39,7 @@ export default {
         }
     },
     mounted() {
-        let commentRef = firebase.database().ref('comments/');
+        let commentRef = firebase.database().ref(`goods/${this.goodIndex-1}/comments`);
         commentRef.on('value', () => {
             this.getComments()
         })

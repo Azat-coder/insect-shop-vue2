@@ -1,7 +1,7 @@
 <template>
     <div class="wishlist">
         <div class="wishlist-top-block">
-            <h1 class="wishlist-top-block-header">Мои желания</h1>
+            <h1 class="wishlist-top-block-header">Избранное</h1>
             <router-link to="/">
                 <div class="button back-to-goods-btn button">
                 Вернуться в каталог
@@ -104,7 +104,6 @@
 }
 
 .wishlist-top-block-header {
-    color: #739e0c;
     padding-left: 50px;
     padding-top: 20px;
 }
@@ -114,7 +113,6 @@
 }
 
 .wishlist-nogood-text {
-    color: #739e0c;
     padding-left: 20px;
 }
 

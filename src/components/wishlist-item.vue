@@ -4,10 +4,14 @@
         class="wishlist-item-image"
         :src="require(`../images/${wishlist_item_data.image}.jpg`)" 
         alt="">
-        <div class="wishlist-item-info">
-            <p>{{wishlist_item_data.name}}</p>
-            <p>{{wishlist_item_data.price}} руб.</p>
-        </div>
+        <router-link 
+            class="wishlist-item-info-link"
+            :to="goodPageLink">
+            <div class="wishlist-item-info">
+                <p>{{wishlist_item_data.name}}</p>
+                <p>{{wishlist_item_data.price}} руб.</p>
+            </div>
+        </router-link>
         <div class="wishlist-item-buttons">
             <button
                 class="button button-add_to_cart" 
@@ -45,6 +49,11 @@ export default {
         addToCartFromWishlist () {
             this.$emit('addToCartFromWishlist')
         }
+    },
+    computed: {
+        goodPageLink() {
+            return `/goodPage/${this.wishlist_item_data.index}`
+        }
     }
 }
 </script>
@@ -69,9 +78,13 @@ export default {
 
 .wishlist-item-info {
     width: 400px;
-    color: #739e0c;
     font-weight: bold;
     font-size: 18px;
+}
+
+.wishlist-item-info-link {
+    color: #283136;
+    text-decoration: none;
 }
 
 .wishlist-item-buttons {

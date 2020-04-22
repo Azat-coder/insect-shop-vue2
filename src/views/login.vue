@@ -25,9 +25,9 @@
                     >Введите корректный адрес электронной почты</small>
                 </div>
                 <div class="input-field">
-                    <input 
-                    class="login-password" 
-                    type="text" 
+                    <input
+                    type="password"
+                    class="login-password"  
                     placeholder="Пароль"
                     v-model.trim="password"
                     :class="{invalid: ($v.password.$dirty && !$v.password.required) || ($v.email.$dirty && !$v.password.minLength)}"

@@ -1,7 +1,7 @@
 <template>
     <div class="footer-block">
         <div class="footer-container">
-            <h1>Подвал сайта</h1>
+            <h1 class="">Подвал сайта</h1>
         </div>
     </div>
 </template>

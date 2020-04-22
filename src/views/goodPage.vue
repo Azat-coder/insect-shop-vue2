@@ -118,7 +118,10 @@ export default {
         },
         photoShowLink() {
             return `/photoShow/${this.good.index}`
-        }
+        },
+        // goodsRating() {
+
+        // }
     },
     mounted() {
         firebase.storage().ref('images').child(`${this.GOODS[this.goodIndex-1].image}.jpg`).getDownloadURL().then(data =>{
@@ -168,7 +171,7 @@ export default {
 }
 
 .good-page-info-name {
-    color: #739e0c;
+    color: #283136;
     padding: 20px;
 }
 
@@ -204,14 +207,12 @@ export default {
     font-size: 22px;
     font-weight: bold;
     margin-left: 20px;
-    color: #739e0c;
 }
 
 .good-page-info-rating {
     font-size: 20px;
     font-weight: bold;
     padding: 20px;
-    color: #739e0c;
 }
 
 .good-page-button-block {
@@ -254,7 +255,7 @@ export default {
 }
 
 .good-page-description {
-    color: #739e0c;
+   
     margin-left: 20px;
     margin-top: 20px;
     border: 2px solid #739e0c;
@@ -274,7 +275,6 @@ export default {
     margin: 20px;
     margin-right: 0px;  
     padding: 10px;
-    color: #739e0c;
 }
 
 .good-page-feedback-header {

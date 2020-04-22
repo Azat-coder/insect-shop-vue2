@@ -345,10 +345,14 @@ export default {
 </script>
 
 <style scoped>
-.container {
-        background-color:#739e0c;  
+.container {  
         min-width: 300px;  
         padding-left: 20px;
+        border: 2px solid #739e0c;
+        border-radius: 15px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
     } 
 
 .categories,
@@ -357,7 +361,7 @@ export default {
 	padding: 0;
 	border: none;
 	margin-bottom: 45px;
-    color: #ffffff;
+    
 }
 
 .categories {
@@ -420,7 +424,6 @@ input[type="checkbox"] {
 
 legend {
     font-weight: bold;
-    color: #ffffff;
 }
 
 .legend-main {
@@ -534,8 +537,8 @@ input[type=range]:focus {
 	justify-content: center;
 	width: 120px;
 	height: 35px;
-	color: #739e0c;
-	background-color: #ffffff;
+	color: #ffffff;
+	background-color: #739e0c;
 	text-decoration: none;
 	font-weight: 700;
 	text-transform: uppercase;
