@@ -31,7 +31,11 @@ export default {
         }
     },
     getters: {
-        info: s => s.info,
-        uid: s => s.uid
+        info(state) {
+            return state.info
+        },
+        uid(state) {
+            return state.uid
+        }
     }
 }

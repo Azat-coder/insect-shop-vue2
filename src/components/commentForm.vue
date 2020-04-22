@@ -157,33 +157,28 @@
                     userName: this.userMail,
                     commentText: this.commentText,
                     attachedFiles: this.imageData.name,
-                    rating: this.rating
-                    
+                    rating: this.rating    
                 })
                 this.picture = null
                 this.userName = ''
                 this.commentText = ''
                 this.rating = 0
-
                 this.$store.dispatch('uploadImage', this.imageData)
-                
-                // firebase.database().ref('goods/' + goodId + ).set({
-                //     rating: this.ratingValue
-                // })
             }
         },
         computed: {
             ...mapGetters([
-                'uid'
+                'uid',
+                'info'
             ]),
             goodIndex() {
                 return this.$route.params.index
             },
             userMail() {
-            return this.$store.getters.info.email
+                return this.info.email
         }
         }
-    }
+}
 </script>
 
 <style scoped>

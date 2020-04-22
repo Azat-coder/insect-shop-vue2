@@ -110,10 +110,11 @@ export default {
     computed: {
         ...mapGetters([
             'CART',
-            'SEARCH_VALUE'
+            'SEARCH_VALUE',
+            'info'
         ]),
         userMail() {
-            return this.$store.getters.info.email
+            return this.info.email
         }
     }
 }
