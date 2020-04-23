@@ -2,7 +2,7 @@
     <div class="wishlist-item">
         <img 
         class="wishlist-item-image"
-        :src="require(`../images/${wishlist_item_data.image}.jpg`)" 
+        :src="imageURL" 
         alt="">
         <router-link 
             class="wishlist-item-info-link"
@@ -31,9 +31,15 @@
 </template>
 
 <script>
+import firebase from 'firebase/app'
 
 export default {
     name: "wishlist-item",
+    data() {
+        return {
+            imageURL: ''
+        }   
+    },
     props: {
         wishlist_item_data: {
             type: Object,
@@ -54,7 +60,12 @@ export default {
         goodPageLink() {
             return `/goodPage/${this.wishlist_item_data.index}`
         }
-    }
+    },
+    mounted() {
+        firebase.storage().ref('images').child(`${this.wishlist_item_data.image}.jpg`).getDownloadURL().then(data =>{
+            this.imageURL = data}
+        )
+    },
 }
 </script>
 

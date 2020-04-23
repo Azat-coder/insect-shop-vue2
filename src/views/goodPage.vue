@@ -26,7 +26,7 @@
                         class="button" 
                         @click="addToWishlist(good)"
                     >
-                    Добавить в Мои желания
+                    Добавить в Избранное
                     </button>
                 </div>
             </div>

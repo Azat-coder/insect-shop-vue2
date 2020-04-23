@@ -13,6 +13,7 @@ export default {
         clearInfo(state) {
             state.info = {}
             state.orders = []
+            state.uid = ''
         },
         setUID(state, uid) {
             state.uid = uid

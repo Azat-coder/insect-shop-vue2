@@ -119,7 +119,7 @@
         </form>
     <div
         class="comment-form-registered"
-        v-if="!this.userMail"
+        v-else
         >
         Отзывы о товарах могут оставлять только зарегистрированные пользователи
     </div>
